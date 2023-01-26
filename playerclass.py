@@ -57,9 +57,9 @@ class Board:
 
     # Dunder method to print information about the board
     def __str__(self):
-        print("Who would win each game:")
-        print("How much money does everybody end up with:")
-        print("What spaces does everybody finish on:")
+        print("Who would win each game:\n" + self.get_winners())
+        print("How much money does everybody end up with:\n" + self.get_moneys())
+        print("What spaces does everybody finish on:\n" + self.get_positions())
 
     # Returns winner(s) with the maximum amount on hand
     def get_winners(self):
@@ -68,15 +68,15 @@ class Board:
         for player in players:
             amounts.append(player.get)
 
-    # Returns String that describes each player's current position
-    def get_positions(self):
+    # Returns String that describes each player's current amount
+    def get_moneys(self):
         players = self.get_players()
         amounts = list()
         for player in players:
             amounts.append(player.get)
 
-    # Returns String that describes each player's current amount
-    def get_moneys(self):
+    # Returns String that describes each player's current position
+    def get_positions(self):
         players = self.get_players()
         amounts = list()
         for player in players:
@@ -95,7 +95,6 @@ class Player:
         self.properties_owned[property.colour].append(property)
 
     # defining getters and setters
-
     def get_amount(self):
         return self.amount
 
