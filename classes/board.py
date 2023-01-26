@@ -1,6 +1,11 @@
-from collections import defaultdict
-from copy import deepcopy
-import constants
+from player import Player
+from square import Square, Property, Go
+
+"""
+A Board contains two dictionaries:
+1. square_dict: contains indexes as keys and Square objects as values
+2. Players: contains indexes as keys and Player objects as values
+"""
 
 
 class Board:
@@ -20,20 +25,21 @@ class Board:
     def get_squares(self):
         return self.square_list
 
+    def get_NUM_PLAYERS(self):
+        return self.NUM_PLAYERS
+
+    def get_NUM_SQUARES(self):
+        return self.NUM_SQUARES
+
     # private method
     # processes the data from the raw JSON
     def parse_player_list(self, player_list):
-        try:
-            new_dict = dict()
-            if len(player_list) == 0:
-                return new_dict
-            for i in range(len(player_list)):
-                new_dict[i] = Player(player_list[i], i)
+        new_dict = dict()
+        if len(player_list) == 0:
             return new_dict
-        except:
-            return
-        finally:
-            exit(-1)
+        for i in range(len(player_list)):
+            new_dict[i] = Player(player_list[i], i)
+        return new_dict
 
     # private method
     # processes the data from the raw JSON
@@ -91,84 +97,3 @@ class Board:
         player.set_position(new_position)
         # action on the square
         self.get_square_dict(new_position).action(player)
-
-
-class Player:
-    def __init__(self, name, player_number):
-        self.name = name
-        self.player_number = player_number
-        self.amount = constants.STARTING_AMOUNT
-        self.properties_owned = defaultdict([])
-        self.position = 0
-
-    def buy_property(self, property):
-        self.properties_owned[property.colour].append(property)
-
-    # defining getters and setters
-    def get_amount(self):
-        return self.amount
-
-    # Only amount and properties are changed, so let's write setter methods for those
-
-    def add_amount(self, num):
-        self.set_amount(self.get_amount() + num)
-
-    def set_position(self, num):
-        self.position = num
-
-    def is_bankrupt(self):
-        if (self.amount < 0):
-            return True
-        return False
-
-
-class Square:
-    def __init__(self, name, square_type):
-        self.name = name
-        self.square_type = square_type
-
-    def action(player: Player):
-        # empty
-        return
-
-
-class Go(Square):
-    # def __init__(self, name, square_type):
-    #     super.__init__(name, square_type)
-
-    def action(player: Player):
-        player.add_amount(1)
-
-
-class Property(Square):
-    def __init__(self, name, square_type, price, colour):
-        super.__init__(name, square_type)
-        self.price = price
-        self.colour = colour
-        self.owner = -1
-
-    # defining getters
-    # setters not allowed as properties do not change in the game
-    def get_name(self):
-        return self.name
-
-    def get_price(self):
-        return self.price
-
-    def get_colour(self):
-        return self.colour
-
-    def get_square_type(self):
-        return self.square_type
-
-    def get_owner(self):
-        return self.square_type
-
-    def set_owner(self, owner_name):
-        self.owner = owner_name
-
-    def action(self, player):
-        if self.owner == "":
-            player.buy_property()
-            self.set_owner(deepcopy(player))
-        return
