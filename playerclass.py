@@ -1,4 +1,5 @@
 from collections import defaultdict
+from copy import deepcopy
 import constants
 
 
@@ -82,6 +83,15 @@ class Board:
         for player in players:
             amounts.append(player.get)
 
+    def roll(self, player, dice_roll):
+        number = dice_roll
+        curr_position = player.get_position()
+        new_position = (curr_position + number) % self.NUM_SQUARES
+        # update player position
+        player.set_position(new_position)
+        # action on the square
+        self.get_square_dict(new_position).action(player)
+
 
 class Player:
     def __init__(self, name, player_number):
@@ -102,6 +112,9 @@ class Player:
 
     def add_amount(self, num):
         self.set_amount(self.get_amount() + num)
+
+    def set_position(self, num):
+        self.position = num
 
 
 class Square:
@@ -154,8 +167,8 @@ class Property(Square):
     def set_owner(self, owner_name):
         self.owner = owner_name
 
-    def action(self, player: Player):
+    def action(self, player):
         if self.owner == "":
             player.buy_property()
-            self.set_owner(player.player_number)
+            self.set_owner(deepcopy(player))
         return
