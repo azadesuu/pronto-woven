@@ -116,16 +116,16 @@ class Player:
     def set_position(self, num):
         self.position = num
 
+    def is_bankrupt(self):
+        if (self.amount < 0):
+            return True
+        return False
+
 
 class Square:
     def __init__(self, name, square_type):
         self.name = name
         self.square_type = square_type
-
-    def is_bankrupt(player):
-        if (player.amount < 0):
-            return True
-        return False
 
     def action(player: Player):
         # empty
