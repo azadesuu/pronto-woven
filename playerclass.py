@@ -20,6 +20,7 @@ class Board:
         return self.square_list
 
     # private method
+    # processes the data from the raw JSON
     def parse_player_list(self, player_list):
         try:
             new_dict = dict()
@@ -34,6 +35,7 @@ class Board:
             exit(-1)
 
     # private method
+    # processes the data from the raw JSON
     def parse_square_list(self, square_list):
         try:
             new_dict = dict
@@ -53,13 +55,29 @@ class Board:
         finally:
             exit(-1)
 
+    # Dunder method to print information about the board
     def __str__(self):
         print("Who would win each game:")
         print("How much money does everybody end up with:")
         print("What spaces does everybody finish on:")
 
+    # Returns winner(s) with the maximum amount on hand
     def get_winners(self):
-        players = self.et_players()
+        players = self.get_players()
+        amounts = list()
+        for player in players:
+            amounts.append(player.get)
+
+    # Returns String that describes each player's current position
+    def get_positions(self):
+        players = self.get_players()
+        amounts = list()
+        for player in players:
+            amounts.append(player.get)
+
+    # Returns String that describes each player's current amount
+    def get_moneys(self):
+        players = self.get_players()
         amounts = list()
         for player in players:
             amounts.append(player.get)
@@ -71,6 +89,7 @@ class Player:
         self.player_number = player_number
         self.amount = constants.STARTING_AMOUNT
         self.properties_owned = defaultdict([])
+        self.position = 0
 
     def buy_property(self, property):
         self.properties_owned[property.colour].append(property)
