@@ -7,8 +7,8 @@ class Square:
         self.name = name
         self.square_type = square_type
 
+    # interface
     def action(player: Player):
-        # empty
         pass
 
 

@@ -62,38 +62,68 @@ class Board:
         finally:
             exit(-1)
 
+    # simulate the game using determined rolls
+    def simulate(self, rolls):
+        for i in range(len(rolls)):
+            steps = rolls[i]
+            player_number = i % self.NUM_PLAYERS
+            player = (self.get_player_dict())[player_number]
+
+            self.roll(player, steps)
+
+            if (player.is_bankrupt()):
+                break
+
+        self.__str__()
+
     # Dunder method to print information about the board
     def __str__(self):
-        print("Who would win each game:\n" + self.get_winners())
-        print("How much money does everybody end up with:\n" + self.get_moneys())
-        print("What spaces does everybody finish on:\n" + self.get_positions())
+        print("--------------RESULTS:--------------")
+        print("Who would win each game?\n" + self.get_winners())
+        print("\nHow much money does everybody end up with?\n" + self.get_moneys())
+        print("\nWhat spaces does everybody finish on?\n" + self.get_positions())
 
     # Returns winner(s) with the maximum amount on hand
     def get_winners(self):
         players = self.get_players()
         amounts = list()
         for player in players:
-            amounts.append(player.get)
+            amounts.append(player.get_amount())
+
+        # get winner
+        max_amount = max(amounts)
+        winner_string = ""
+        for i in range(len(players.keys())):
+            curr_player = players[i]
+            player_amount = curr_player.get_amount()
+            # if the player amount is the maximum
+            if (player_amount == max_amount):
+                winner_string += 'Player %d, %s, is a winner with $%d\n' % (
+                    i, curr_player.get_name(), curr_player.get_amount())
 
     # Returns String that describes each player's current amount
+
     def get_moneys(self):
         players = self.get_players()
-        amounts = list()
-        for player in players:
-            amounts.append(player.get)
+        amount_string = ""
+        for i in range(len(players.keys)):
+            curr_player = players[i]
+            amount_string += 'Player %d, %s, has $%d\n' % (
+                i, curr_player.get_name(), curr_player.get_amount())
 
     # Returns String that describes each player's current position
     def get_positions(self):
         players = self.get_players()
-        amounts = list()
-        for player in players:
-            amounts.append(player.get)
+        position_string = ""
+        for i in range(len(players.keys)):
+            curr_player = players[i]
+            position_string += 'Player %d, %s, is at position $%d\n' % (
+                i, curr_player.get_name(), curr_player.get_position())
 
-    def roll(self, player, dice_roll):
-        number = dice_roll
+    def roll(self, player, steps):
         curr_position = player.get_position()
-        new_position = (curr_position + number) % self.NUM_SQUARES
+        new_position = (curr_position + steps) % self.NUM_SQUARES
         # update player position
-        player.set_position(new_position)
+        player.set_position(steps)
         # action on the square
         self.get_square_dict(new_position).action(player)
