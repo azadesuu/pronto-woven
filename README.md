@@ -1,3 +1,7 @@
+## Instructions
+
+``python -m __init__``
+
 ## Woven coding test
 
 Your task is to write an application to play the game of Woven Monopoly.
