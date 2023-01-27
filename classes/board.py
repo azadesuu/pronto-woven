@@ -16,13 +16,13 @@ class Board:
     def __init__(self, raw_squares, raw_players):
         """
         Instantiates a Board object
-
         """
         self.__player_dict = self.__parse_player_list(raw_players)
         self.__square_dict = self.__parse_square_list(raw_squares)
 
         self.__NUM_PLAYERS = len(self.__player_dict)
         self.__NUM_SQUARES = len(self.__square_dict)
+        self.__winners = list()
 
     # Getter methods
     def get_players(self):
@@ -49,8 +49,16 @@ class Board:
         """
         return self.__NUM_SQUARES
 
-    # Private methods
+    def get_end_winners(self):
+        """
+        Gets the list of winners at the end of a game
 
+        Returns:
+            list(): Final list of winning players
+        """
+        return self.winners
+
+    # Private methods
     def __parse_player_list(self, player_list):
         """
         Processes player data from the raw JSON list
@@ -97,77 +105,43 @@ class Board:
                 squares[i] = Go(data["name"], data["type"])
         return squares
 
+    # Other methods
+    def add_winner(self, player):
+        """
+        Adds the winning player to the 'winners' list
+
+        Args:
+            player (Player): A Player object
+        """
+        self.winner.append(player)
+
     def simulate(self, rolls):
         """
         Simulates the board game with the given data and determined dice rolls
 
         Args:
-            square_list (list()): The processed JSON String from the square data file
-
-        Returns:
-            dict(): dictionary containing indexes as keys and Square objects as values
+            rolls (list()): List of numbers that determine the players' movesets
         """
         for i in range(len(rolls)):
+            # number of squares to move
             steps = rolls[i]
+            # the next player to move
             player_number = i % self.NUM_PLAYERS
             player = (self.get_players())[player_number]
-
+            # player is moved
             self.move(player, steps)
-
+            # the game ends when a player is bankrupt
             if (player.is_bankrupt()):
                 break
 
-        self.__str__()
-
-    # Dunder method to print information about the board
-    def __str__(self):
-        print("--------------RESULTS:--------------")
-        print("Who would win each game?\n" + self.get_winners())
-        print("\nHow much money does everybody end up with?\n" + self.get_moneys())
-        print("\nWhat spaces does everybody finish on?\n" + self.get_positions())
-
-    # Returns winner(s) with the maximum amount on hand
-    def get_winners(self):
-        players = self.get_players()
-        amounts = list()
-        for num in players.keys():
-            player = players[num]
-            amounts.append(player.get_amount())
-
-        # get winner
-        max_amount = max(amounts)
-        winner_string = ""
-        for num in players.keys():
-            curr_player = players[num]
-            player_amount = curr_player.get_amount()
-            # if the player amount is the maximum
-            if (player_amount == max_amount):
-                winner_string += 'Player %d, %s, is a winner with $%d\n' % (
-                    num, curr_player.get_name(), curr_player.get_amount())
-        return winner_string
-
-    # Returns String that describes each player's current amount
-    def get_moneys(self):
-        players = self.get_players()
-        amount_string = ""
-        for num in players.keys():
-            curr_player = players[num]
-            amount_string += 'Player %d, %s, has $%d\n' % (
-                num, curr_player.get_name(), curr_player.get_amount())
-
-        return amount_string
-
-    # Returns String that describes each player's current position
-    def get_positions(self):
-        players = self.get_players()
-        position_string = ""
-        for num in players.keys():
-            curr_player = players[num]
-            position_string += 'Player %d, %s, is at position %d\n' % (
-                num, curr_player.get_name(), curr_player.get_position())
-        return position_string
-
     def move(self, player, steps):
+        """
+        Moves the player forwards by the the number of 'steps' and performs the appropriate action depending on the new Square
+
+        Args:
+            player (Player): Player object to be re-positioned
+            steps (int): Number of steps to move on the board
+        """
         curr_position = player.get_position()
         new_position = curr_position + steps
         if (new_position >= self.get_NUM_SQUARES()):
@@ -183,3 +157,73 @@ class Board:
         print(player)
         print(squares[new_position])
         print()
+
+    def __str__(self):
+        """ 
+        Prints information about the Board object, including: current winners, and all players' amount and position for console output
+        """
+        print("--------------RESULTS:--------------")
+        print("Who would win each game?\n" + self.get_winners())
+        print("\nHow much money does everybody end up with?\n" + self.get_moneys())
+        print("\nWhat spaces does everybody finish on?\n" + self.get_positions())
+
+    def get_winners(self):
+        """
+        Obtains winner(s) with the maximum amount on hand
+
+        Returns:
+            String: Information regarding the winning player(s) for console output
+        """
+        players = self.get_players()
+        amounts = list()
+
+        # Adds all the player's amounts to a list
+        for num in players.keys():
+            player = players[num]
+            amounts.append(player.get_amount())
+
+        # Get winner
+        max_amount = max(amounts)  # the highest amount
+        winner_string = ""  # will be returned for console output
+        for num in players.keys():
+            curr_player = players[num]
+            player_amount = curr_player.get_amount()
+            if (player_amount == max_amount):
+                # Player is a winner if their amount is the maximum
+                self.add_winner(curr_player)
+                winner_string += 'Player %d, %s, is a winner with $%d\n' % (
+                    num, curr_player.get_name(), curr_player.get_amount())
+
+        return winner_string
+
+    # Returns String that describes each player's current amount
+    def get_moneys(self):
+        """
+        Obtains the amount on each player's hands
+
+        Returns:
+            String: Information regarding all players' amount on hand for console output
+        """
+        players = self.get_players()
+        amount_string = ""
+        for num in players.keys():
+            curr_player = players[num]
+            amount_string += 'Player %d, %s, has $%d\n' % (
+                num, curr_player.get_name(), curr_player.get_amount())
+        return amount_string
+
+    # Returns String that describes each player's current position
+    def get_positions(self):
+        """
+        Obtains the position of each player
+
+        Returns:
+            String: Information regarding all players' position on the board for console output
+        """
+        players = self.get_players()
+        position_string = ""
+        for num in players.keys():
+            curr_player = players[num]
+            position_string += 'Player %d, %s, is at position %d\n' % (
+                num, curr_player.get_name(), curr_player.get_position())
+        return position_string
