@@ -49,3 +49,6 @@ class Player:
         if (self.get_amount() < 0):
             return True
         return False
+
+    def __str__(self):
+        return "Player %s is at %d with $%d" % (self.get_name(), self.get_position(), self.get_amount())

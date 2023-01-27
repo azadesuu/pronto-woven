@@ -9,7 +9,7 @@ class Square:
         self.square_type = square_type
 
     # interface
-    def action(player: Player):
+    def action(self, player: Player):
         pass
 
     def get_name(self):
@@ -20,11 +20,8 @@ class Square:
 
 
 class Go(Square):
-    # def __init__(self, name, square_type):
-    #     super.__init__(name, square_type)
-
-    def action(self, player: Player):
-        player.add_amount(1)
+    def __str__(self):
+        return "Square is a %s" % (self.get_square_type())
 
 
 class Property(Square):
@@ -48,10 +45,10 @@ class Property(Square):
         return self.colour
 
     def get_owner(self):
-        return self.square_type
+        return self.owner
 
-    def set_owner(self, owner_name):
-        self.owner = owner_name
+    def set_owner(self, player):
+        self.owner = player
 
     @classmethod
     def __add_property(cls, property):
@@ -65,14 +62,21 @@ class Property(Square):
         return len(cls.property_dict[c_colour])
 
     def action(self, player):
-        if self.owner == None:
+        property_owner = self.get_owner()
+        if property_owner == None:
             player.buy_property(self)
             self.set_owner(player)
+            print("buy")
             return
+        print("pay")
         rent = self.get_price()
         property_colour = self.get_colour()
-        owner_properties = self.owner.get_properties_owned()
+        owner_properties = property_owner.get_properties_owned()
         if (len(owner_properties[property_colour]) == self.__get_colour_num(property_colour)):
             rent *= 2
         player.subtract_amount(rent)
+        property_owner.add_amount(rent)
         return
+
+    def __str__(self):
+        return "Square is a %s with price of %d, owned by %s" % (self.get_square_type(), self.get_price(), self.get_owner().get_name())

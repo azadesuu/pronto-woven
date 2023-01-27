@@ -5,6 +5,7 @@ Your task is to write an application to play the game of Woven Monopoly.
 In Woven Monopoly, when the dice rolls are set ahead of time, the game is deterministic.
 
 ### Game rules
+
 * There are four players who take turns in the following order:
   * Peter
   * Billy
@@ -20,8 +21,8 @@ In Woven Monopoly, when the dice rolls are set ahead of time, the game is determ
 * There are no chance cards, jail or stations
 * The board wraps around (i.e. you get to the last space, the next space is the first space)
 
-
 ### Your task
+
 * Load in the board from board.json
 * Implement game logic as per the rules
 * Load in the given dice rolls files and simulate the game
@@ -29,10 +30,10 @@ In Woven Monopoly, when the dice rolls are set ahead of time, the game is determ
   * How much money does everybody end up with?
   * What spaces does everybody finish on?
 
-
 The specifics and implementation of this code is completely up to you!
 
 ### What we are looking for:
+
 * We are a Ruby house, however feel free to pick the language you feel you are strongest in.
 * Code that is well thought out and tested
 * Clean and readable code

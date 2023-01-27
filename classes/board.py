@@ -1,14 +1,18 @@
 from .player import Player
 from .square import Square, Property, Go
-
-"""
-A Board contains two dictionaries:
-1. square_dict: contains indexes as keys and Square objects as values
-2. Players: contains indexes as keys and Player objects as values
-"""
+from .constants import *
 
 
 class Board:
+    """
+    A Board contains information about the game entities: squares and players
+
+    A Board contains two attributes:
+    1. __square_dict: a private dict() containing indexes as keys and Square objects as values
+    2. __player_dict: a private dict() containing indexes as keys and Player objects as values
+
+    """
+
     def __init__(self, raw_squares, raw_players):
         self.__player_dict = self.__parse_player_list(raw_players)
         self.__square_dict = self.__parse_square_list(raw_squares)
@@ -18,15 +22,27 @@ class Board:
 
     # defining getters
     def get_players(self):
+        """
+        Returns the dictionary of players: __player_dict
+        """
         return self.__player_dict
 
     def get_squares(self):
+        """
+        Returns the dictionary of players: __player_dict
+        """
         return self.__square_dict
 
     def get_NUM_PLAYERS(self):
+        """
+        Returns the number of players
+        """
         return self.NUM_PLAYERS
 
     def get_NUM_SQUARES(self):
+        """
+        Returns the number of squares on the board
+        """
         return self.NUM_SQUARES
 
     # private method
@@ -40,32 +56,35 @@ class Board:
             new_dict[i] = Player(player["name"], i)
         return new_dict
 
-    # private method
-    # processes the data from the raw JSON
     def __parse_square_list(self, square_list):
+        # initialising an empty dictionary to put the values into
         squares = dict()
-        print(square_list)
         if len(square_list) == 0:
+            # no squares available
             return squares
         for i in range(len(square_list)):
             data = square_list[i]
             if (data["type"] == "property"):
+                # property square
                 created_property = Property(
                     data["name"], data["type"], data["price"], data["colour"])
                 squares[i] = created_property
             if (data["type"] == "go"):
+                # GO square
                 squares[i] = Go(
                     data["name"], data["type"])
         return squares
 
-    # simulate the game using determined rolls
     def simulate(self, rolls):
+        """
+        Simulates the board game with the given data and determined dice rolls
+        """
         for i in range(len(rolls)):
             steps = rolls[i]
             player_number = i % self.NUM_PLAYERS
             player = (self.get_players())[player_number]
 
-            self.roll(player, steps)
+            self.move(player, steps)
 
             if (player.is_bankrupt()):
                 break
@@ -120,11 +139,19 @@ class Board:
                 num, curr_player.get_name(), curr_player.get_position())
         return position_string
 
-    def roll(self, player, steps):
+    def move(self, player, steps):
         curr_position = player.get_position()
-        new_position = (curr_position + steps) % self.NUM_SQUARES
+        new_position = curr_position + steps
+        if (new_position >= self.get_NUM_SQUARES()):
+            # player passes go
+            player.add_amount(GO_AMOUNT)
+        new_position = new_position % self.NUM_SQUARES
         # update player position
-        player.set_position(steps)
+        player.set_position(new_position)
+
         # Player performs action on the square
         squares = self.get_squares()
         squares[new_position].action(player)
+        print(player)
+        print(squares[new_position])
+        print()
