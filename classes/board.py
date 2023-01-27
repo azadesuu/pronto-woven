@@ -159,7 +159,9 @@ class Board:
             # The game ends when a player is bankrupt
             if player.is_bankrupt():
                 break
+        # adds the winners to the Board's winner list
         self.get_winners()
+        # resets the class property dictionary
         Property.reset_class()
 
     def move(self, player, steps):

@@ -79,10 +79,12 @@ class TestGame(unittest.TestCase):
         is owned. Simulates the rolls, [1,1], from the test_rolls_1 JSON file,
         in the board game.
         """
+        # Processing rolls
         rolls_1_f = open("test_data\\test_rolls_1.json")
         t_rolls_data = json.load(rolls_1_f)
         rolls_1_f.close()
 
+        # Creating new board
         t_board3 = Board(self.t_board_data_2, self.t_player_data)
         t_board3.simulate(t_rolls_data)
 
