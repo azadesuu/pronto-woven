@@ -43,7 +43,7 @@ class Board:
         # Will store the winners at the end
         self.__winners = list()
 
-    # Getter methods
+    # ------------- Class getters and setters
     def get_players(self):
         """Returns all player data
 
@@ -84,7 +84,7 @@ class Board:
         """
         return self.winners
 
-    # Private methods
+    # ------------- Class Private Methods
     def __parse_player_list(self, player_list):
         """
         Processes player data from the raw JSON list
@@ -131,7 +131,7 @@ class Board:
                 squares[i] = Go(data["name"], data["type"])
         return squares
 
-    # Other methods
+    # ------------- Class Methods
     def add_winner(self, player):
         """Appends the winning player to the winners list
 
@@ -224,7 +224,6 @@ class Board:
 
         return winner_string
 
-    # Returns String that describes each player's current amount
     def get_moneys(self):
         """Obtains the amount on each player's hands
 
@@ -242,7 +241,6 @@ class Board:
             )
         return amount_string
 
-    # Returns String that describes each player's current position
     def get_positions(self):
         """Obtains the position of each player
 

@@ -4,14 +4,16 @@ from collections import defaultdict
 
 class Player:
     """
-    A player is a participant in the Woven Monopoly simulation
+    A Player is a participant in the Woven Monopoly simulation
 
     :param __name: The player's name. May include spaces
     :type __name: str
     :param __player_number: The player's number (the other that players play
         in). Starts from 0
     :type __player_number: int
-    :param __amount: The player's amount/money on hand.
+    :param __amount: The player's amount/money on hand. The default amount can
+        be set in constants.py, but cannot be equal or less than 0 else
+        the game will end immediately
     :type __amount: int
     :param __position: The player's current position. The default position can
         be set in constants.py, but cannot be equal or more

@@ -14,14 +14,14 @@ class TestSimple(unittest.TestCase):
         rolls_1_f = open("test_data\\test_rolls_1.json")
 
         # Instantiating
-        player_data = json.load(player_f)
-        board_data = json.load(board_f)
-        rolls_1_data = json.load(rolls_1_f)
+        t_player_data = json.load(player_f)
+        t_board_data = json.load(board_f)
+        t_rolls_data = json.load(rolls_1_f)
 
-        board = Board(board_data, player_data)
+        board = Board(t_board_data, t_player_data)
         self.assertTrue(board.get_NUM_PLAYERS() == 4)
         self.assertTrue(board.get_NUM_SQUARES() == 4)
-        board.simulate(rolls_1_data)
+        board.simulate(t_rolls_data)
 
         board_f.close()
         player_f.close()
