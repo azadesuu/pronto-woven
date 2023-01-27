@@ -15,15 +15,15 @@ def __main__():
     rolls_1_data = json.load(rolls_1_f)
     rolls_2_data = json.load(rolls_2_f)
 
-    board = Board(board_data, player_data)
-    board.simulate(rolls_1_data)
-    board.simulate(rolls_2_data)
-
     # Close all the relevant files
     board_f.close()
     player_f.close()
     rolls_1_f.close()
     rolls_2_f.close()
+
+    board = Board(board_data, player_data)
+    board.simulate(rolls_1_data)
+    board.simulate(rolls_2_data)
 
 
 __main__()

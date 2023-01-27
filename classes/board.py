@@ -44,6 +44,7 @@ class Board:
         self.__winners = list()
 
     # ------------- Class getters and setters
+
     def get_players(self):
         """Returns all player data
 
@@ -82,7 +83,7 @@ class Board:
         :return: Final list of winning players
         :rtype: list
         """
-        return self.winners
+        return self.__winners
 
     # ------------- Class Private Methods
     def __parse_player_list(self, player_list):

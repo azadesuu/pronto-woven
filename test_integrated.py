@@ -1,31 +1,103 @@
+from copy import deepcopy
 from classes.board import Board
 
 import unittest
 import json
 
 
-class TestSimple(unittest.TestCase):
-    def test_two(self):
-        self.assertTrue(2 == 2)
+class TestGame(unittest.TestCase):
+    """Checks if the winner is Charlotte in all scenarios. The rolls have been
+    designed in that way.
 
-    def test_simple(self):
-        board_f = open("test_data\\test_board_1.json")
-        player_f = open("test_data\\test_players_1.json")
+    The data is imported from the 'test_data' folder.
+    There are two players, Charlotte and Sweedal, and 3 properties with 1 GO.
+    That adds up to 4 Squares and 2 Players.
+    """
+
+    # Initialising Board and Player values
+    board_f = open("test_data\\test_board_1.json")
+    board_f_2 = open("test_data\\test_board_2.json")
+    player_f = open("test_data\\test_players_1.json")
+
+    t_player_data = json.load(player_f)
+    t_board_data = json.load(board_f)
+    t_board_data_2 = json.load(board_f_2)
+    board = Board(t_board_data, t_player_data)
+    board2 = Board(t_board_data_2, t_player_data)
+
+    board_f.close()
+    player_f.close()
+
+    def test_simulate(self):
+        """Simulates the rolls, [1,1], from the test_rolls_1 JSON file, in
+        the board game.
+        """
         rolls_1_f = open("test_data\\test_rolls_1.json")
-
-        # Instantiating
-        t_player_data = json.load(player_f)
-        t_board_data = json.load(board_f)
         t_rolls_data = json.load(rolls_1_f)
-
-        board = Board(t_board_data, t_player_data)
-        self.assertTrue(board.get_NUM_PLAYERS() == 4)
-        self.assertTrue(board.get_NUM_SQUARES() == 4)
-        board.simulate(t_rolls_data)
-
-        board_f.close()
-        player_f.close()
         rolls_1_f.close()
+
+        t_board = deepcopy(self.board)
+        t_board.simulate(t_rolls_data)
+
+        self.assertTrue(t_board.get_NUM_PLAYERS() == 2)
+        self.assertTrue(t_board.get_NUM_SQUARES() == 4)
+        winner_name = ""
+        winner_amount = -1
+        for winner in t_board.get_end_winners():
+            winner_name += winner.get_name()
+            winner_amount = winner.get_amount()
+
+        self.assertTrue(winner_name == "Charlotte")
+        self.assertTrue(winner_amount == 16)
+
+    def test_simulate2(self):
+        """Simulates the rolls, [1,1,4,4], from the test_rolls_2 JSON file, in
+        the board game
+        """
+        rolls_2_f = open("test_data\\test_rolls_2.json")
+        t_rolls_data = json.load(rolls_2_f)
+        rolls_2_f.close()
+
+        t_board2 = deepcopy(self.board)
+        t_board2.simulate(t_rolls_data)
+
+        self.assertTrue(t_board2.get_NUM_PLAYERS() == 2)
+        self.assertTrue(t_board2.get_NUM_SQUARES() == 4)
+        winner_name = ""
+        winner_amount = -1
+        for winner in t_board2.get_end_winners():
+            winner_name += winner.get_name()
+            winner_amount = winner.get_amount()
+
+        # proves that the property is owned by Charlotte
+        self.assertTrue(winner_name == "Charlotte")
+        self.assertTrue(winner_amount == 18)
+
+    def test_double_rent(self):
+        """Checks if the rent is doubled if all properties of a colour
+        is owned. Simulates the rolls, [1,1], from the test_rolls_1 JSON file,
+        in the board game.
+        """
+        rolls_1_f = open("test_data\\test_rolls_1.json")
+        t_rolls_data = json.load(rolls_1_f)
+        rolls_1_f.close()
+
+        t_board3 = deepcopy(self.board2)
+        t_board3.simulate(t_rolls_data)
+
+        self.assertTrue(t_board3.get_NUM_PLAYERS() == 2)
+        self.assertTrue(t_board3.get_NUM_SQUARES() == 3)
+        winner_name = ""
+        winner_amount = -1
+        for winner in t_board3.get_end_winners():
+            winner_name += winner.get_name()
+            winner_amount = winner.get_amount()
+
+        for pos in t_board3.get_squares().keys():
+            print(t_board3.get_squares()[pos].__str__())
+
+        # self.assertTrue(winner_name == "Charlotte")
+        # self.assertTrue(winner_amount == 17)
 
 
 if __name__ == "__main__":

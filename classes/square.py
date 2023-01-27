@@ -142,7 +142,7 @@ class Property(Square):
         self.__owner = player
 
     @classmethod
-    def __add_property(cls, property):
+    def __add_property(cls, prop):
         """Adds the property to the property dictionary that contains all
         property data in the Property class.
 
@@ -150,8 +150,8 @@ class Property(Square):
         :type property: Property
         """
         # adding properties to list
-        colour = property.get_colour()
-        (cls.property_dict[colour]).append(property)
+        colour = prop.get_colour()
+        (cls.property_dict[colour]).append(prop)
 
     def __get_colour_num(cls, colour):
         """Get the number of properties of the given colour from the
@@ -163,6 +163,7 @@ class Property(Square):
         :rtype: _type_
         """
         c_colour = colour.capitalize()
+        print((cls.property_dict[c_colour])[0].__str__())
         return len(cls.property_dict[c_colour])
 
     def action(self, player):
@@ -182,6 +183,8 @@ class Property(Square):
         rent = self.get_price()
         property_colour = self.get_colour()
         owner_properties = property_owner.get_properties_owned()
+        print("helo " + property_owner.get_name())
+        print(owner_properties[0].__str__())
         if len(owner_properties[property_colour]) == self.__get_colour_num(
             property_colour
         ):
@@ -200,6 +203,12 @@ class Property(Square):
         :return: Information about the class object (type, price, owner)
         :rtype: str
         """
+        if self.get_owner() == None:
+            return "Square is a %s with price of %d, owned by %s" % (
+                self.get_square_type(),
+                self.get_price(),
+                "None",
+            )
         return "Square is a %s with price of %d, owned by %s" % (
             self.get_square_type(),
             self.get_price(),
