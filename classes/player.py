@@ -4,24 +4,58 @@ from collections import defaultdict
 
 class Player:
     def __init__(self, name, player_number):
+        """
+        Initialises a Player object
+
+        Args:
+            name (String): Player name
+            player_number (int): Player number (the order that players play in)
+        """
+        # player's name
         self.__name = name
+        # the order that players play in
         self.__player_number = player_number
+        # player's starting amount and position
         self.__amount = STARTING_AMOUNT
+        self.__position = STARTING_POSITION
+        # player's owned properties
         self.__properties_owned = defaultdict(list)
-        self.__position = 0
 
-    # defining getters and setters
-
+    # Class getters and setters
     def set_amount(self, num):
+        """
+        Sets the amount of moneys that a Player has
+
+        Args:
+            num (int): Amount to set the player's money to
+        """
         self.__amount = num
 
     def get_player_number(self):
+        """
+        Returns the player number (that is, the order that players play in)
+
+        Returns:
+            int: The player number
+        """
         return self.__player_number
 
     def get_name(self):
+        """
+        Returns the player name
+
+        Returns:
+            str: The player's name
+        """
         return self.__name
 
     def get_amount(self):
+        """
+        Returns the player's money amount
+
+        Returns:
+            int: The player's money amount
+        """
         return self.__amount
 
     def get_properties_owned(self):

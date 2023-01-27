@@ -6,22 +6,24 @@ from .constants import *
 class Board:
     """
     A Board contains information about the game entities: squares and players
-
-    A Board contains two attributes:
-    1. __square_dict: a private dict() containing player numbers as keys and Square objects as values
-    2. __player_dict: a private dict() containing positions as keys and Player objects as values
-
     """
 
     def __init__(self, raw_squares, raw_players):
         """
-        Instantiates a Board object
-        """
-        self.__player_dict = self.__parse_player_list(raw_players)
-        self.__square_dict = self.__parse_square_list(raw_squares)
+        Initialises a Board object
 
-        self.__NUM_PLAYERS = len(self.__player_dict)
+        Args:
+            raw_squares (list()): Contains a list of dictionaries populated with square data
+            raw_players (list()): Contains a list of dictionaries populated with player data
+        """
+        """_summary_
+        """
+        self.__square_dict = self.__parse_square_list(raw_squares)
+        self.__player_dict = self.__parse_player_list(raw_players)
+
         self.__NUM_SQUARES = len(self.__square_dict)
+        self.__NUM_PLAYERS = len(self.__player_dict)
+
         self.__winners = list()
 
     # Getter methods
@@ -63,11 +65,10 @@ class Board:
         """
         Processes player data from the raw JSON list
 
-        Args:
-            player_list (String): The processed JSON String from the player data file
-
-        Returns:
-            dict(): dictionary containing player numbers as keys and Player objects as values
+        :param player_list: The processed JSON String from the player data file
+        :type player_list: str
+        :return: dictionary containing player numbers as keys and Player objects as values
+        :rtype: dict
         """
         new_dict = dict()
         if len(player_list) == 0:
@@ -113,7 +114,7 @@ class Board:
         Args:
             player (Player): A Player object
         """
-        self.winner.append(player)
+        self.__winners.append(player)
 
     def simulate(self, rolls):
         """
@@ -126,13 +127,14 @@ class Board:
             # number of squares to move
             steps = rolls[i]
             # the next player to move
-            player_number = i % self.NUM_PLAYERS
+            player_number = i % self.get_NUM_PLAYERS()
             player = (self.get_players())[player_number]
             # player is moved
             self.move(player, steps)
             # the game ends when a player is bankrupt
             if (player.is_bankrupt()):
                 break
+        self.__str__()
 
     def move(self, player, steps):
         """
@@ -147,7 +149,7 @@ class Board:
         if (new_position >= self.get_NUM_SQUARES()):
             # player passes go
             player.add_amount(GO_AMOUNT)
-        new_position = new_position % self.NUM_SQUARES
+        new_position = new_position % self.get_NUM_SQUARES()
         # update player position
         player.set_position(new_position)
 
@@ -172,7 +174,7 @@ class Board:
         Obtains winner(s) with the maximum amount on hand
 
         Returns:
-            String: Information regarding the winning player(s) for console output
+            str: Information regarding the winning player(s) for console output
         """
         players = self.get_players()
         amounts = list()
