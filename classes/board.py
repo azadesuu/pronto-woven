@@ -83,37 +83,42 @@ class Board:
     def get_winners(self):
         players = self.get_players()
         amounts = list()
-        for player in players:
+        for num in players.keys():
+            player = players[num]
             amounts.append(player.get_amount())
 
         # get winner
         max_amount = max(amounts)
         winner_string = ""
-        for i in range(len(players.keys())):
-            curr_player = players[i]
+        for num in players.keys():
+            curr_player = players[num]
             player_amount = curr_player.get_amount()
             # if the player amount is the maximum
             if (player_amount == max_amount):
                 winner_string += 'Player %d, %s, is a winner with $%d\n' % (
-                    i, curr_player.get_name(), curr_player.get_amount())
+                    num, curr_player.get_name(), curr_player.get_amount())
+        return winner_string
 
     # Returns String that describes each player's current amount
     def get_moneys(self):
         players = self.get_players()
         amount_string = ""
-        for i in range(len(players.keys)):
-            curr_player = players[i]
+        for num in players.keys():
+            curr_player = players[num]
             amount_string += 'Player %d, %s, has $%d\n' % (
-                i, curr_player.get_name(), curr_player.get_amount())
+                num, curr_player.get_name(), curr_player.get_amount())
+
+        return amount_string
 
     # Returns String that describes each player's current position
     def get_positions(self):
         players = self.get_players()
         position_string = ""
-        for i in range(len(players.keys)):
-            curr_player = players[i]
-            position_string += 'Player %d, %s, is at position $%d\n' % (
-                i, curr_player.get_name(), curr_player.get_position())
+        for num in players.keys():
+            curr_player = players[num]
+            position_string += 'Player %d, %s, is at position %d\n' % (
+                num, curr_player.get_name(), curr_player.get_position())
+        return position_string
 
     def roll(self, player, steps):
         curr_position = player.get_position()

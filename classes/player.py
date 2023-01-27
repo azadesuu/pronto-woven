@@ -46,6 +46,6 @@ class Player:
         self.__properties_owned[property.colour].append(property)
 
     def is_bankrupt(self):
-        if (self.amount < 0):
+        if (self.get_amount() < 0):
             return True
         return False
