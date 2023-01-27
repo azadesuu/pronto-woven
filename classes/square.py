@@ -17,14 +17,14 @@ class Square:
     def __init__(self, name, square_type):
         """Initialises a Square object
 
-        :param name: The name of the Square
-        :type name: str
-        :param square_type: The type of Square, which determines the
+        :param __name: The name of the Square
+        :type __name: str
+        :param __square_type: The type of Square, which determines the
             player actions
-        :type square_type: str
+        :type __square_type: str
         """
-        self.name = name
-        self.square_type = square_type
+        self.__name = name
+        self.__square_type = square_type
 
     # interface
     def action(self, player: Player):
@@ -41,7 +41,7 @@ class Square:
         :return: The square's name
         :rtype: str
         """
-        return self.name
+        return self.__name
 
     def get_square_type(self):
         """Returns the square's type
@@ -49,7 +49,7 @@ class Square:
         :return: The square's type
         :rtype: str
         """
-        return self.square_type
+        return self.__square_type
 
 
 class Go(Square):
@@ -77,17 +77,17 @@ class Property(Square):
     :param Square: Parent class
     :type Square: Square
 
-    :param property_dict: Contains information about all the properties
+    :param __property_dict: Contains information about all the properties
         of the game. The properties are sorted by colour. That is, for each key
         or colour in the dictionary, the value associated with that colour
         will be the list of properties with the given colour.
     :type name: dict
 
-    :param name: The name of the Square
-    :type name: str
-    :param square_type: The type of Square, which determines the
+    :param __ame: The name of the Square
+    :type __name: str
+    :param __square_type: The type of Square, which determines the
         player actions
-    :type square_type: str
+    :type __square_type: str
 
     :param __price: The price of the property/rent
     :type __price: str
@@ -98,7 +98,7 @@ class Property(Square):
     """
 
     # Class attribute
-    property_dict = defaultdict(list)
+    __property_dict = defaultdict(list)
 
     def __init__(self, name, square_type, price, colour):
         super().__init__(name, square_type)
@@ -151,9 +151,10 @@ class Property(Square):
         """
         # adding properties to list
         colour = prop.get_colour()
-        (cls.property_dict[colour]).append(copy(prop))
+        (cls.__property_dict[colour]).append(copy(prop))
 
-    def __get_colour_num(cls, colour):
+    @classmethod
+    def get_colour_num(cls, colour):
         """Get the number of properties of the given colour from the
         property dictionary
 
@@ -162,8 +163,9 @@ class Property(Square):
         :return: _description_
         :rtype: _type_
         """
+
         c_colour = colour.capitalize()
-        return len(cls.property_dict[c_colour])
+        return len(cls.__property_dict[c_colour])
 
     def action(self, player):
         """The action the player performs when it lands on the Square.
@@ -182,7 +184,7 @@ class Property(Square):
         rent = self.get_price()
         property_colour = self.get_colour()
         owner_properties = property_owner.get_properties_owned()
-        if len(owner_properties[property_colour]) == self.__get_colour_num(
+        if len(owner_properties[property_colour]) == self.get_colour_num(
             property_colour
         ):
             # if the current owner owns all the properties in the same colour
@@ -213,6 +215,7 @@ class Property(Square):
         )
 
     @classmethod
-    def reset_class(cls):
-        cls.property_dict.clear()
-        cls.property_dict = defaultdict(list)
+    def reset_class(self):
+        print("-----------RESET----------")
+        self.__property_dict.clear()
+        self.__property_dict = defaultdict(list)

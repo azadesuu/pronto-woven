@@ -47,8 +47,6 @@ class TestGame(unittest.TestCase):
         self.assertTrue(winner_name == "Charlotte")
         self.assertTrue(winner_amount == 16)
 
-        Property.reset_class()
-
     def test_simulate2(self):
         """Simulates the rolls, [1,1,4,4], from the test_rolls_2 JSON file, in
         the board game
@@ -71,8 +69,6 @@ class TestGame(unittest.TestCase):
         # proves that the property is owned by Charlotte
         self.assertTrue(winner_name == "Charlotte")
         self.assertTrue(winner_amount == 18)
-
-        Property.reset_class()
 
     def test_double_rent(self):
         """Checks if the rent is doubled if all properties of a colour
@@ -97,8 +93,6 @@ class TestGame(unittest.TestCase):
             winner_amount = winner.get_amount()
         self.assertTrue(winner_name == "Charlotte")
         self.assertTrue(winner_amount == 17)
-
-        Property.reset_class()
 
     board_f.close()
     player_f.close()
