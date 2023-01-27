@@ -39,37 +39,28 @@ class Player:
         # player's owned properties
         self.__properties_owned = defaultdict(list)
 
-    # Class getters and setters
-    def set_amount(self, num):
-        """
-        Sets the amount of moneys that a Player has
-
-        :param num: Amount to set the player's money to
-        :type num: int
-        """
-        self.__amount = num
-
+    # ------------- Class getters and setters
     def get_player_number(self):
         """Returns the player number (that is , the order that players play in )
 
-        : return: The player number
-        : rtype: int
+        :return: The player number
+        :rtype: int
         """
         return self.__player_number
 
     def get_name(self):
         """Returns the player name
 
-        : return: The player's name
-        : rtype: str
+        :return: The player's name
+        :rtype: str
         """
         return self.__name
 
     def get_amount(self):
         """Returns the player's money amount
 
-        : return: The player's money amount
-        : rtype: int
+        :return: The player's money amount
+        :rtype: int
         """
         return self.__amount
 
@@ -89,7 +80,16 @@ class Player:
         """
         return self.__position
 
-    # Class methods
+    def set_amount(self, num):
+        """
+        Sets the amount of moneys that a Player has
+
+        :param num: Amount to set the player's money to
+        :type num: int
+        """
+        self.__amount = num
+
+    # ------------- Class methods
     def add_amount(self, num):
         """
         Adds the given amount to the player's money
