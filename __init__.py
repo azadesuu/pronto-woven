@@ -19,5 +19,10 @@ def __main__():
 
     # board.simulate(rolls_2_data)
 
+    board_f.close()
+    player_f.close()
+    rolls_1_f.close()
+    rolls_2_f.close()
+
 
 __main__()

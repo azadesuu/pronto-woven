@@ -8,19 +8,23 @@ class Board:
     A Board contains information about the game entities: squares and players
 
     A Board contains two attributes:
-    1. __square_dict: a private dict() containing indexes as keys and Square objects as values
-    2. __player_dict: a private dict() containing indexes as keys and Player objects as values
+    1. __square_dict: a private dict() containing player numbers as keys and Square objects as values
+    2. __player_dict: a private dict() containing positions as keys and Player objects as values
 
     """
 
     def __init__(self, raw_squares, raw_players):
+        """
+        Instantiates a Board object
+
+        """
         self.__player_dict = self.__parse_player_list(raw_players)
         self.__square_dict = self.__parse_square_list(raw_squares)
 
-        self.NUM_PLAYERS = len(self.__player_dict)
-        self.NUM_SQUARES = len(self.__square_dict)
+        self.__NUM_PLAYERS = len(self.__player_dict)
+        self.__NUM_SQUARES = len(self.__square_dict)
 
-    # defining getters
+    # Getter methods
     def get_players(self):
         """
         Returns the dictionary of players: __player_dict
@@ -29,7 +33,7 @@ class Board:
 
     def get_squares(self):
         """
-        Returns the dictionary of players: __player_dict
+        Returns the dictionary of squares: __square_dicts
         """
         return self.__square_dict
 
@@ -37,17 +41,26 @@ class Board:
         """
         Returns the number of players
         """
-        return self.NUM_PLAYERS
+        return self.__NUM_PLAYERS
 
     def get_NUM_SQUARES(self):
         """
         Returns the number of squares on the board
         """
-        return self.NUM_SQUARES
+        return self.__NUM_SQUARES
 
-    # private method
-    # processes the data from the raw JSON
+    # Private methods
+
     def __parse_player_list(self, player_list):
+        """
+        Processes player data from the raw JSON list
+
+        Args:
+            player_list (String): The processed JSON String from the player data file
+
+        Returns:
+            dict(): dictionary containing player numbers as keys and Player objects as values
+        """
         new_dict = dict()
         if len(player_list) == 0:
             return new_dict
@@ -57,27 +70,42 @@ class Board:
         return new_dict
 
     def __parse_square_list(self, square_list):
+        """
+        Processes player data from the raw JSON list
+
+        Args:
+            square_list (list()): The processed JSON String from the square data file
+
+        Returns:
+            dict(): dictionary containing positions as keys and Square objects as values
+        """
         # initialising an empty dictionary to put the values into
         squares = dict()
         if len(square_list) == 0:
             # no squares available
             return squares
+        # processing Square object data
         for i in range(len(square_list)):
             data = square_list[i]
             if (data["type"] == "property"):
                 # property square
-                created_property = Property(
+                squares[i] = Property(
                     data["name"], data["type"], data["price"], data["colour"])
-                squares[i] = created_property
+
             if (data["type"] == "go"):
                 # GO square
-                squares[i] = Go(
-                    data["name"], data["type"])
+                squares[i] = Go(data["name"], data["type"])
         return squares
 
     def simulate(self, rolls):
         """
         Simulates the board game with the given data and determined dice rolls
+
+        Args:
+            square_list (list()): The processed JSON String from the square data file
+
+        Returns:
+            dict(): dictionary containing indexes as keys and Square objects as values
         """
         for i in range(len(rolls)):
             steps = rolls[i]
