@@ -1,5 +1,5 @@
 from collections import defaultdict
-from copy import deepcopy
+from copy import copy, deepcopy
 from .player import Player
 
 
@@ -151,7 +151,7 @@ class Property(Square):
         """
         # adding properties to list
         colour = prop.get_colour()
-        (cls.property_dict[colour]).append(prop)
+        (cls.property_dict[colour]).append(copy(prop))
 
     def __get_colour_num(cls, colour):
         """Get the number of properties of the given colour from the
@@ -163,7 +163,6 @@ class Property(Square):
         :rtype: _type_
         """
         c_colour = colour.capitalize()
-        print((cls.property_dict[c_colour])[0].__str__())
         return len(cls.property_dict[c_colour])
 
     def action(self, player):
@@ -183,8 +182,6 @@ class Property(Square):
         rent = self.get_price()
         property_colour = self.get_colour()
         owner_properties = property_owner.get_properties_owned()
-        print("helo " + property_owner.get_name())
-        print(owner_properties[0].__str__())
         if len(owner_properties[property_colour]) == self.__get_colour_num(
             property_colour
         ):
@@ -214,3 +211,8 @@ class Property(Square):
             self.get_price(),
             self.get_owner().get_name(),
         )
+
+    @classmethod
+    def reset_class(cls):
+        cls.property_dict.clear()
+        cls.property_dict = defaultdict(list)

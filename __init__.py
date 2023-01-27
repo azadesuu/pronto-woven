@@ -1,5 +1,6 @@
 import json
 from classes.board import Board
+from classes.board import Board
 
 
 def __main__():
@@ -23,7 +24,9 @@ def __main__():
 
     board = Board(board_data, player_data)
     board.simulate(rolls_1_data)
+    print(board)
     board.simulate(rolls_2_data)
+    print(board)
 
 
 __main__()

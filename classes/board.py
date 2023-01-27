@@ -159,7 +159,8 @@ class Board:
             # The game ends when a player is bankrupt
             if player.is_bankrupt():
                 break
-        self.__str__()
+        self.get_winners()
+        Property.reset_class()
 
     def move(self, player, steps):
         """Moves the player forwards by the the number of 'steps' and performs
@@ -188,10 +189,16 @@ class Board:
         """Prints information about the Board object, including: current
         winners, and all players' amount and position for console output
         """
-        print("--------------RESULTS:--------------")
-        print("Who would win each game?\n" + self.get_winners())
-        print("\nHow much money does everybody end up with?\n" + self.get_moneys())
-        print("\nWhat spaces does everybody finish on?\n" + self.get_positions())
+        board_string = ""
+        board_string += "--------------RESULTS:--------------\n"
+        board_string += "Who would win each game?\n" + self.get_winners()
+        board_string += (
+            "\nHow much money does everybody end up with?\n" + self.get_moneys()
+        )
+        board_string += (
+            "\nWhat spaces does everybody finish on?\n" + self.get_positions()
+        )
+        return board_string
 
     def get_winners(self):
         """
@@ -209,6 +216,9 @@ class Board:
             amounts.append(player.get_amount())
 
         # Get winner
+        winner_empty = False
+        if len(self.__winners) == 0:
+            winner_empty = True
         max_amount = max(amounts)  # The highest amount
         winner_string = ""  # String will be returned for console output
         for num in players.keys():
@@ -216,7 +226,8 @@ class Board:
             player_amount = curr_player.get_amount()
             if player_amount == max_amount:
                 # Player is a winner if their amount is the maximum
-                self.add_winner(curr_player)
+                if winner_empty:
+                    self.add_winner(curr_player)
                 winner_string += "Player %d, %s, is a winner with $%d\n" % (
                     num,
                     curr_player.get_name(),

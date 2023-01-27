@@ -1,5 +1,7 @@
 from copy import deepcopy
 from classes.board import Board
+from classes.square import Property
+
 
 import unittest
 import json
@@ -22,11 +24,6 @@ class TestGame(unittest.TestCase):
     t_player_data = json.load(player_f)
     t_board_data = json.load(board_f)
     t_board_data_2 = json.load(board_f_2)
-    board = Board(t_board_data, t_player_data)
-    board2 = Board(t_board_data_2, t_player_data)
-
-    board_f.close()
-    player_f.close()
 
     def test_simulate(self):
         """Simulates the rolls, [1,1], from the test_rolls_1 JSON file, in
@@ -36,7 +33,7 @@ class TestGame(unittest.TestCase):
         t_rolls_data = json.load(rolls_1_f)
         rolls_1_f.close()
 
-        t_board = deepcopy(self.board)
+        t_board = Board(self.t_board_data, self.t_player_data)
         t_board.simulate(t_rolls_data)
 
         self.assertTrue(t_board.get_NUM_PLAYERS() == 2)
@@ -50,6 +47,8 @@ class TestGame(unittest.TestCase):
         self.assertTrue(winner_name == "Charlotte")
         self.assertTrue(winner_amount == 16)
 
+        Property.reset_class()
+
     def test_simulate2(self):
         """Simulates the rolls, [1,1,4,4], from the test_rolls_2 JSON file, in
         the board game
@@ -58,7 +57,7 @@ class TestGame(unittest.TestCase):
         t_rolls_data = json.load(rolls_2_f)
         rolls_2_f.close()
 
-        t_board2 = deepcopy(self.board)
+        t_board2 = Board(self.t_board_data, self.t_player_data)
         t_board2.simulate(t_rolls_data)
 
         self.assertTrue(t_board2.get_NUM_PLAYERS() == 2)
@@ -73,6 +72,8 @@ class TestGame(unittest.TestCase):
         self.assertTrue(winner_name == "Charlotte")
         self.assertTrue(winner_amount == 18)
 
+        Property.reset_class()
+
     def test_double_rent(self):
         """Checks if the rent is doubled if all properties of a colour
         is owned. Simulates the rolls, [1,1], from the test_rolls_1 JSON file,
@@ -82,7 +83,7 @@ class TestGame(unittest.TestCase):
         t_rolls_data = json.load(rolls_1_f)
         rolls_1_f.close()
 
-        t_board3 = deepcopy(self.board2)
+        t_board3 = Board(self.t_board_data_2, self.t_player_data)
         t_board3.simulate(t_rolls_data)
 
         self.assertTrue(t_board3.get_NUM_PLAYERS() == 2)
@@ -92,13 +93,14 @@ class TestGame(unittest.TestCase):
         for winner in t_board3.get_end_winners():
             winner_name += winner.get_name()
             winner_amount = winner.get_amount()
+        self.assertTrue(winner_name == "Charlotte")
+        self.assertTrue(winner_amount == 17)
 
-        for pos in t_board3.get_squares().keys():
-            print(t_board3.get_squares()[pos].__str__())
+        Property.reset_class()
 
-        # self.assertTrue(winner_name == "Charlotte")
-        # self.assertTrue(winner_amount == 17)
+    board_f.close()
+    player_f.close()
 
 
 if __name__ == "__main__":
-    unittest.main()
+    unittest.main(verbosity=2)
