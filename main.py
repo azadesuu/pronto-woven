@@ -15,5 +15,5 @@ rolls_2_data = json.load(rolls_2_f)
 
 
 board = Board(board_data, player_data)
-# board.simulate(rolls_1_data)
+board.simulate(rolls_1_data)
 # board.simulate(rolls_2_data)

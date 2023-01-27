@@ -21,7 +21,7 @@ class Board:
         return self.__player_dict
 
     def get_squares(self):
-        return self.__square_list
+        return self.__square_dict
 
     def get_NUM_PLAYERS(self):
         return self.NUM_PLAYERS
@@ -51,7 +51,7 @@ class Board:
             data = square_list[i]
             if (data["type"] == "property"):
                 created_property = Property(
-                    data["name"], data["price"], data["colour"], data["type"])
+                    data["name"], data["type"], data["price"], data["colour"])
                 squares[i] = created_property
             if (data["type"] == "go"):
                 squares[i] = Go(
@@ -63,7 +63,7 @@ class Board:
         for i in range(len(rolls)):
             steps = rolls[i]
             player_number = i % self.NUM_PLAYERS
-            player = (self.get_player_dict())[player_number]
+            player = (self.get_players())[player_number]
 
             self.roll(player, steps)
 
@@ -121,5 +121,5 @@ class Board:
         # update player position
         player.set_position(steps)
         # Player performs action on the square
-        squares = self.get_square_dict().values()
+        squares = self.get_squares()
         squares[new_position].action(player)
