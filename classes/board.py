@@ -112,16 +112,16 @@ class Board:
             and Square objects as values
         :rtype: dict
         """
-        # initialising an empty dictionary to put the values into
+        # Initialising an empty dictionary to put the values into
         squares = dict()
         if len(square_list) == 0:
             # no squares available
             return squares
-        # processing Square object data
+        # Processing Square object data
         for i in range(len(square_list)):
             data = square_list[i]
             if data["type"] == "property":
-                # property square
+                # Property square
                 squares[i] = Property(
                     data["name"], data["type"], data["price"], data["colour"]
                 )
@@ -148,14 +148,14 @@ class Board:
         :type rolls: list
         """
         for i in range(len(rolls)):
-            # number of squares to move
+            # Number of squares to move
             steps = rolls[i]
-            # the next player to move
+            # The next player to move
             player_number = i % self.get_NUM_PLAYERS()
             player = (self.get_players())[player_number]
-            # player is moved
+            # Player is moved
             self.move(player, steps)
-            # the game ends when a player is bankrupt
+            # The game ends when a player is bankrupt
             if player.is_bankrupt():
                 break
         self.__str__()
@@ -173,18 +173,15 @@ class Board:
         curr_position = player.get_position()
         new_position = curr_position + steps
         if new_position >= self.get_NUM_SQUARES():
-            # player passes go
+            # Player passes go
             player.add_amount(GO_AMOUNT)
         new_position = new_position % self.get_NUM_SQUARES()
-        # update player position
+        # Update player position
         player.set_position(new_position)
 
         # Player performs action on the square
         squares = self.get_squares()
         squares[new_position].action(player)
-        # print(player)
-        # print(squares[new_position])
-        # print()
 
     def __str__(self):
         """Prints information about the Board object, including: current
@@ -211,8 +208,8 @@ class Board:
             amounts.append(player.get_amount())
 
         # Get winner
-        max_amount = max(amounts)  # the highest amount
-        winner_string = ""  # will be returned for console output
+        max_amount = max(amounts)  # The highest amount
+        winner_string = ""  # String will be returned for console output
         for num in players.keys():
             curr_player = players[num]
             player_amount = curr_player.get_amount()

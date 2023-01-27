@@ -4,10 +4,10 @@ from classes.board import Board
 
 def __main__():
     # Opening all the relevant files
-    board_f = open("board.json")
-    player_f = open("players.json")
-    rolls_1_f = open("rolls_1.json")
-    rolls_2_f = open("rolls_2.json")
+    board_f = open("data\\board.json")
+    player_f = open("data\\players.json")
+    rolls_1_f = open("data\\rolls_1.json")
+    rolls_2_f = open("data\\rolls_2.json")
 
     # Processing data from the JSON objects
     player_data = json.load(player_f)
