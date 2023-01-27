@@ -9,9 +9,9 @@ class TestSimple(unittest.TestCase):
         self.assertTrue(2 == 2)
 
     def test_simple(self):
-        board_f = open("tests\\test_board_1.json")
-        player_f = open("tests\\test_players_1.json")
-        rolls_1_f = open("tests\\test_rolls_1.json")
+        board_f = open("test_data\\test_board_1.json")
+        player_f = open("test_data\\test_players_1.json")
+        rolls_1_f = open("test_data\\test_rolls_1.json")
 
         # Instantiating
         player_data = json.load(player_f)
