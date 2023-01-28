@@ -176,7 +176,9 @@ class Property(Square):
         # Get the current property owner
         property_owner = self.get_owner()
         if property_owner == None:
-            # Player must buy the property if its not owned
+            # Player must buy the property if its not owned.
+            # Assume that the player will own the property even if they-
+            # -cannot afford it, and go into debt
             player.buy_property(self)
             self.set_owner(player)
             return
@@ -190,10 +192,18 @@ class Property(Square):
             # if the current owner owns all the properties in the same colour
             # the rent is doubled
             rent *= 2
-        # Subtract the rent from the current player
-        player.subtract_amount(rent)
-        # Add the rent to the property owner
-        property_owner.add_amount(rent)
+
+        # Making the assumption that if the player cannot pay rent,-
+        # -they will empty their wallets to the owner and game ends
+        player_wallet = player.get_amount()
+        if player_wallet < rent:
+            property_owner.add_amount(player_wallet)
+            player.subtract_amount(player_wallet)
+        else:
+            # Add the rent to the property owner
+            property_owner.add_amount(rent)
+            # Subtract the rent from the current player
+            player.subtract_amount(rent)
 
     def __str__(self):
         """A dunder method that provides information about the class object
@@ -218,6 +228,6 @@ class Property(Square):
 
     @classmethod
     def reset_class(self):
-        print("-----------RESET----------")
+        """Clears data about board properties from the class"""
         self.__property_dict.clear()
         self.__property_dict = defaultdict(list)
