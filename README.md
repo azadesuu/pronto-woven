@@ -173,10 +173,10 @@ Player 2, Charlotte, has $0
 Player 3, Sweedal, has $1
 
 What spaces does everybody finish on?
-Player 0, Peter, is at position 8
-Player 1, Billy, is at position 0
-Player 2, Charlotte, is at position 7
-Player 3, Sweedal, is at position 7
+Player 0, Peter, is at position 8, which is a Blue property, Massizim, with price of 4, owned by Peter
+Player 1, Billy, is at position 0, which is a go
+Player 2, Charlotte, is at position 7, which is a Blue property, Gami Chicken, with price of 4, owned by Peter
+Player 3, Sweedal, is at position 7, which is a Blue property, Gami Chicken, with price of 4, owned by Peter
 ```
 
 ### Roll 2
@@ -193,10 +193,10 @@ Player 2, Charlotte, has $29
 Player 3, Sweedal, has $0
 
 What spaces does everybody finish on?
-Player 0, Peter, is at position 4
-Player 1, Billy, is at position 2
-Player 2, Charlotte, is at position 0
-Player 3, Sweedal, is at position 8
+Player 0, Peter, is at position 4, which is a Red property, Lanzhou Beef Noodle, with price of 2, owned by Charlotte
+Player 1, Billy, is at position 2, which is a Brown property, Fast Kebabs, with price of 1, owned by Billy
+Player 2, Charlotte, is at position 0, which is a go
+Player 3, Sweedal, is at position 8, which is a Blue property, Massizim, with price of 4, owned by Charlotte
 ```
 
 ## ℹ️ Woven coding test
