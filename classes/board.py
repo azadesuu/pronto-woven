@@ -263,18 +263,28 @@ class Board:
         return amount_string
 
     def get_positions(self):
-        """Obtains the position of each player
+        """Obtains the position of each player and information about the square
 
-        :return: Information regarding all players' position on the board for console output
+        :return: Information regarding all players' position on the board for
+            console output
         :rtype: str
         """
         players = self.get_players()
+        squares = self.get_squares()
         position_string = ""
         for num in players.keys():
             curr_player = players[num]
-            position_string += "Player %d, %s, is at position %d\n" % (
-                num,
-                curr_player.get_name(),
-                curr_player.get_position(),
+            curr_position = curr_player.get_position()
+            curr_square = squares[curr_position]
+            position_string += (
+                "Player %d, %s, is at position %d"
+                % (
+                    num,
+                    curr_player.get_name(),
+                    curr_position,
+                )
+                + ", which is "
+                + (squares[curr_position]).__str__()
+                + "\n"
             )
         return position_string

@@ -69,7 +69,7 @@ class Go(Square):
         :return: Information about the class object (type)
         :rtype: str
         """
-        return "Square is a %s" % (self.get_square_type())
+        return "a %s" % (self.get_square_type())
 
 
 class Property(Square):
@@ -217,12 +217,14 @@ class Property(Square):
         :rtype: str
         """
         if self.get_owner() == None:
-            return "Square is a %s with price of %d, owned by %s" % (
+            return "a %s %s, %s, with price of %d, owned by %s" % (
+                self.get_colour(),
                 self.get_square_type(),
+                self.get_name(),
                 self.get_price(),
                 "None",
             )
-        return "Square is a %s %s, %s, with price of %d, owned by %s" % (
+        return "a %s %s, %s, with price of %d, owned by %s" % (
             self.get_colour(),
             self.get_square_type(),
             self.get_name(),
