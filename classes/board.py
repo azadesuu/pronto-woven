@@ -202,7 +202,7 @@ class Board:
         board_string += "--------------RESULTS:--------------\n"
         board_string += "Who would win each game?\n" + self.get_winners()
         board_string += (
-            "\nHow much money does everybody end up with?\n" + self.get_moneys()
+            "\nHow much money does everybody end up with?\n" + self.get_amounts()
         )
         board_string += (
             "\nWhat spaces does everybody finish on?\n" + self.get_positions()
@@ -245,7 +245,7 @@ class Board:
 
         return winner_string
 
-    def get_moneys(self):
+    def get_amounts(self):
         """Obtains the amount on each player's hands
 
         :return: Information regarding all players' amount on hand for console output

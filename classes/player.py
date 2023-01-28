@@ -26,10 +26,10 @@ class Player:
     def __init__(self, name, player_number):
         """Initialises a Player object
 
-        : param name: Player name
-        : type name: str
-        : param player_number: Player number (the order that players play in )
-        : type player_number: int
+        : param __name: Player name
+        : type __name: str
+        : param __player_number: Player number (the order that players play in )
+        : type __   player_number: int
         """
         # player's name
         self.__name = name
@@ -91,6 +91,14 @@ class Player:
         """
         self.__amount = num
 
+    def set_position(self, num):
+        """Sets the position of the player to the given number
+
+        :param num: The player's new position
+        :type num: int
+        """
+        self.__position = num
+
     # ------------- Class methods
     def add_amount(self, num):
         """
@@ -109,23 +117,15 @@ class Player:
         """
         self.set_amount(self.get_amount() - num)
 
-    def set_position(self, num):
-        """Sets the position of the player to the given number
-
-        :param num: The player's new position
-        :type num: int
-        """
-        self.__position = num
-
-    def buy_property(self, property):
+    def buy_property(self, prop):
         """Called when the property is to be owned by the player
 
         :param property: An unowned property object
         :type property: Property
         """
         # assumes that the property is owned even if the player is bankrupt
-        self.subtract_amount(property.get_price())
-        self.__properties_owned[property.get_colour()].append(property)
+        self.subtract_amount(prop.get_price())
+        self.__properties_owned[prop.get_colour()].append(prop)
 
     def is_bankrupt(self):
         """Returns true if the player has less than or equal to bankruptcy

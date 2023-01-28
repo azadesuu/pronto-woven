@@ -94,6 +94,13 @@ The first step was to plan the architecture of the program.
 
 ### Architectural Diagrams
 
+UML Diagram:
+<p align="center">
+  <picture>
+    <img src="github-images/woven-UML.png">
+  </picture>
+</p>
+
 ### Class Documentation
 
 I wrote docstrings for each class and method, and for the test files for the program. The documentation PDF is provided under `woven_monopoly.pdf`
@@ -119,7 +126,7 @@ The environmental variables can by simply changed in `classes/constants.py`
 
 The Square class can be further extended. Some instructions to make a new `Jail` Square are provided below :
 
-1. Ensure a `Jail` `JSON `object is in the `board.json ` `JSON` file provided for the board
+1. Ensure a `Jail ` JSON object is in the `board.json ` JSON file provided for the board
 2. The new class can implemented with ease in the `square.py` file:
    ```
    class Jail(Square):

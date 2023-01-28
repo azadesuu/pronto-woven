@@ -145,9 +145,10 @@ class TestSquare(unittest.TestCase):
         """Tests the dunder method"""
         t_prop2 = self.test_property2
         t_prop2.set_owner(Player("Azadesuu", 0))
+        print(t_prop2)
         self.assertTrue(
             t_prop2.__str__()
-            == ("Square is a property with price of 6, owned by Azadesuu")
+            == ("a Red property, KFC, with price of 6, owned by Azadesuu")
         )
 
     def test_class_properties(self):

@@ -86,7 +86,7 @@ class Property(Square):
         will be the list of properties with the given colour.
     :type name: dict
 
-    :param __ame: The name of the Square
+    :param __name: The name of the Square
     :type __name: str
     :param __square_type: The type of Square, which determines the
         player actions
@@ -233,7 +233,7 @@ class Property(Square):
         )
 
     @classmethod
-    def reset_class(self):
+    def reset_class(cls):
         """Clears information regarding board properties from the class"""
-        self.__property_dict.clear()
-        self.__property_dict = defaultdict(list)
+        cls.__property_dict.clear()
+        cls.__property_dict = defaultdict(list)
