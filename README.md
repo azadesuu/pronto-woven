@@ -14,11 +14,29 @@ I really wanted to challenge myself and learn Ruby on Rails, but I don't own a M
 ## 🍀 Table of Contents
 
 * [Running Instructions](#running-instructions)
-* Assumptions
-* Approach
-* Extensibility
+  * Simulation Variables
+  * Console commands
+* [Assumptions](#assumptions)
+* [Approach](#approach)
+* [Extensibility](#extensibility)
 
 ## Running Instructions
+
+### Simulation Variables
+
+These variables can by simply changed in `classes/constants.py`
+
+| Variable              | Type     | Description                                                                                    |
+| --------------------- | -------- | ---------------------------------------------------------------------------------------------- |
+| `STARTING_POSITION` | `int`  | The position where the players start.                                                          |
+| `STARTING_AMOUNT`   | `int`  | The amount that players start with.                                                            |
+| `GO_AMOUNT`         | `int`  | The amount that players get when passing through Go.                                           |
+| `PRINT_TURNS`       | `bool` | The information of each player and their turn will be output onto the console                  |
+| `PRINT_RESULTS`     | `bool` | The final statistics of the game will be printed. That is, the answers to the questions given. |
+
+### Console Commands
+
+I ran the simulation with Windows Powershell using these commands:
 
 **Main:**
 ``python -m __init__``
