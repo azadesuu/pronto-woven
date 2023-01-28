@@ -86,7 +86,7 @@ There were few considerations that I asked to clarify in my email. Since these f
 2. The player will **empty their wallets** to the property owner if they cannot afford the full rent. That is, the player will give whatever amount they have on hand to the owner.
 3. If the player lands on a property they cannot afford to buy, they will go into debt. That is, they will have negative dollars.
 4. The price of a player's owned properties do not add to the player's final amount
-5. There can be **multiple winners** if players have the same maximum amount at the end of the game
+5. There can be **multiple winners** if players have the same maximum amount at the end of the game.
 
 #### Reasons for Assumptions
 
@@ -112,7 +112,7 @@ UML Diagram:
 
 <p align="center">
   <picture>
-    <img src="github-images/woven-UML.png">
+    <img src="github-images\woven-UML.png">
   </picture>
 </p>
 
