@@ -2,14 +2,15 @@
 
 Hi there! This is my project for Pronto Software's Woven Monopoly project.
 
-I decided to write my report in the README instead of the PDF for easier access. The README includes my thought process, design architecture, testing/running details, and so on. Here's the contents list:
-Running Instructions
+I decided to write my report in the README instead of the PDF for easier access. The README includes my thought process, design architecture, testing/running details, and so on.
 
-I wanted this application to be as extensible as possible, hence I applied as many OOP practices as I could to make it easier for customization.
+I wanted this application to be as extensible as possible, hence I applied as many OOP practices as I could to make it easier for customization. This includes Encapsulation (private methods and variables), Inheritance (Square superclass), and Abstraction (Property, Go).
+
+My final answers to the given questions can be found under the [Results ](#results)section, or `results.txt` in the directory.
 
 ### Side Note
 
-I really wanted to challenge myself and learn Ruby on Rails, but I don't own a Mac plusthe process of installation on Windows was too difficult and time-consuming. So I opted to challenge myself by using Python instead. It was a fun learning process and I learned a lot of new techniques, including the `unittest` suite as well as Python folder structuring. I also learned how to document methods in Python using the Sphinx structure.
+I really wanted to challenge myself and learn Ruby on Rails, but I don't own a Mac, and the process of installation on Windows seemed too difficult and time-consuming. So I opted to challenge myself by using Python instead. It was a fun learning process and I learned a lot of new techniques, including the `unittest` suite as well as Python folder structuring. I also learned how to document methods in Python using Sphinx style.
 
 ## 🍀 Table of Contents
 
@@ -44,7 +45,7 @@ These variables can by simply changed in `classes/constants.py`
 
 ### Console Commands
 
-You can run the given program using these commands:
+You can run the given program using these commands.
 
 **Main:**
 
@@ -62,6 +63,19 @@ python test_unit.py
 
 ```
 python test_integrated.py
+```
+
+**Generate documentation:**
+
+Delete html folder, then run:
+
+```
+curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+python get-pip.py
+pip install pdoc3
+pdoc --html test_integrated.py
+pdoc --html test_unit.py
+pdoc --html classes
 ```
 
 ## 👾 Assumptions
@@ -95,6 +109,7 @@ The first step was to plan the architecture of the program.
 ### Architectural Diagrams
 
 UML Diagram:
+
 <p align="center">
   <picture>
     <img src="github-images/woven-UML.png">
@@ -103,7 +118,7 @@ UML Diagram:
 
 ### Class Documentation
 
-I wrote docstrings for each class and method, and for the test files for the program. The documentation PDF is provided under `woven_monopoly.pdf`
+I wrote docstrings for each class and method, and for the test files for the program. The latest documentation is available under the `html` folder.
 
 ## 📁 Extensibility
 

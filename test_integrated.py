@@ -29,15 +29,18 @@ class TestGame(unittest.TestCase):
         """Simulates the rolls, [1,1], from the test_rolls_1 JSON file, in
         the board game.
         """
+        # Importing test dice roll data
         rolls_1_f = open("test_data\\test_rolls_1.json")
         t_rolls_data = json.load(rolls_1_f)
         rolls_1_f.close()
 
         t_board = Board(self.t_board_data, self.t_player_data)
-        t_board.simulate(t_rolls_data)
-
+        # 2 Players and 4 Squares in total
         self.assertTrue(t_board.get_NUM_PLAYERS() == 2)
         self.assertTrue(t_board.get_NUM_SQUARES() == 4)
+
+        # Simulate the game
+        t_board.simulate(t_rolls_data)
         winner_name = ""
         winner_amount = -1
         for winner in t_board.get_end_winners():
@@ -51,15 +54,18 @@ class TestGame(unittest.TestCase):
         """Simulates the rolls, [1,1,4,4], from the test_rolls_2 JSON file, in
         the board game
         """
+        # Importing test dice roll data
         rolls_2_f = open("test_data\\test_rolls_2.json")
         t_rolls_data = json.load(rolls_2_f)
         rolls_2_f.close()
 
         t_board2 = Board(self.t_board_data, self.t_player_data)
-        t_board2.simulate(t_rolls_data)
-
+        # 2 Players and 4 Squares in total
         self.assertTrue(t_board2.get_NUM_PLAYERS() == 2)
         self.assertTrue(t_board2.get_NUM_SQUARES() == 4)
+
+        # Simulating the game
+        t_board2.simulate(t_rolls_data)
         winner_name = ""
         winner_amount = -1
         for winner in t_board2.get_end_winners():

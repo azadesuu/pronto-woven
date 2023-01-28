@@ -12,13 +12,15 @@ class TestPlayer(unittest.TestCase):
     methods and attributes"""
 
     # Declaring class variables
+    # This object's attribute values will stay the same
     test_player = None
+    # This object's attribute values will change
     test_player2 = None
 
     @classmethod
     def setUpClass(cls):
-        cls.test_player = Player("Azadesuu", 0)  # attribute values stay the same
-        cls.test_player2 = Player("Azadesuu", 0)  # change attributes
+        cls.test_player = Player("Azadesuu", 0)
+        cls.test_player2 = Player("Azadesuu", 0)
 
     def test_attributes_private(self):
         """Asserts that none of the class attributes can be accessed directly"""
@@ -73,8 +75,11 @@ class TestSquare(unittest.TestCase):
     """A class that contains tests for the Square class
     methods and attributes"""
 
+    # This object's attribute values will stay the same
     test_go = None
+    # This object's attribute values will stay the same
     test_property = None
+    # This object's attribute values will change
     test_property2 = None
 
     @classmethod
@@ -86,7 +91,7 @@ class TestSquare(unittest.TestCase):
         # Property objects
         cls.test_property = Property(
             "McD", "property", 3, "Yellow"
-        )  # attribute values stay the same
+        )  # Attribute values stay the same
         cls.test_property2 = Property("KFC", "property", 6, "Red")  # change attributes
 
     @classmethod
@@ -142,7 +147,7 @@ class TestSquare(unittest.TestCase):
 
     # ------------- Testing Class Methods
     def test_str(self):
-        """Tests the dunder method"""
+        """Tests the string dunder method"""
         t_prop2 = self.test_property2
         t_prop2.set_owner(Player("Azadesuu", 0))
         print(t_prop2)
@@ -195,9 +200,11 @@ class TestBoard(unittest.TestCase):
     methods and attributes"""
 
     # Declaring class variables
-    # Loaded data
+    # Loaded player data
     t_player_data = None
+    # This object's attribute values will stay the same
     t_board_data = None
+    # This object's attribute values will change
     t_board_data2 = None
 
     @classmethod

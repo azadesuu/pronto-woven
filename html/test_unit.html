@@ -1,0 +1,1207 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.10.0" />
+<title>test_unit API documentation</title>
+<meta name="description" content="" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>test_unit</code></h1>
+</header>
+<section id="section-intro">
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">from classes.board import Board
+from classes.player import Player
+from classes.square import Square, Go, Property
+from classes.constants import *
+
+import unittest
+import json
+
+
+class TestPlayer(unittest.TestCase):
+    &#34;&#34;&#34;A class that contains tests for the Player class
+    methods and attributes&#34;&#34;&#34;
+
+    # Declaring class variables
+    # This object&#39;s attribute values will stay the same
+    test_player = None
+    # This object&#39;s attribute values will change
+    test_player2 = None
+
+    @classmethod
+    def setUpClass(cls):
+        cls.test_player = Player(&#34;Azadesuu&#34;, 0)
+        cls.test_player2 = Player(&#34;Azadesuu&#34;, 0)
+
+    def test_attributes_private(self):
+        &#34;&#34;&#34;Asserts that none of the class attributes can be accessed directly&#34;&#34;&#34;
+        t_player = self.test_player
+        with self.assertRaises(AttributeError):
+            t_player.__player_number
+        with self.assertRaises(AttributeError):
+            t_player.__name
+        with self.assertRaises(AttributeError):
+            t_player.__amount
+        with self.assertRaises(AttributeError):
+            t_player.__properties_owned
+        with self.assertRaises(AttributeError):
+            t_player.__position
+
+    def test_attributes_default(self):
+        &#34;&#34;&#34;Asserts that player attributes are the default values.
+        Also tests the getter methods for the class&#34;&#34;&#34;
+        t_player = self.test_player
+        self.assertTrue(t_player.get_player_number() == 0)
+        self.assertTrue(t_player.get_name() == &#34;Azadesuu&#34;)
+        self.assertTrue(len(t_player.get_properties_owned().keys()) == 0)
+
+        # The starting amount and position is based on classes/constants.py
+        self.assertTrue(t_player.get_amount() == STARTING_AMOUNT)
+        self.assertTrue(t_player.get_position() == STARTING_POSITION)
+
+    def test_setter(self):
+        &#34;&#34;&#34;Asserts that the class setters are working&#34;&#34;&#34;
+        t_player2 = self.test_player2
+        # Sets the player&#39;s amount on hand to 10
+        t_player2.set_amount(10)
+        self.assertTrue(t_player2.get_amount() == 10)
+
+    # ------------- Testing Class Methods
+    def test_bankrupt(self):
+        &#34;&#34;&#34;Tests if the class is correctly checking that the
+        player is bankrupt
+        &#34;&#34;&#34;
+        t_player2 = self.test_player2
+        t_player2.set_amount(10)
+        self.assertTrue(t_player2.is_bankrupt() == False)
+        t_player2.set_amount(-1)
+        self.assertTrue(t_player2.is_bankrupt())
+
+    def test_str(self):
+        t_player = self.test_player
+        self.assertTrue(t_player.__str__() == &#34;Player Azadesuu is at 0 with $16&#34;)
+
+
+class TestSquare(unittest.TestCase):
+    &#34;&#34;&#34;A class that contains tests for the Square class
+    methods and attributes&#34;&#34;&#34;
+
+    # This object&#39;s attribute values will stay the same
+    test_go = None
+    # This object&#39;s attribute values will stay the same
+    test_property = None
+    # This object&#39;s attribute values will change
+    test_property2 = None
+
+    @classmethod
+    def setUpClass(cls):
+        # Resetting the property class dictionary
+        Property.reset_class()
+        # Go object
+        cls.test_go = Go(&#34;GO&#34;, &#34;go&#34;)  # attribute values stay the same
+        # Property objects
+        cls.test_property = Property(
+            &#34;McD&#34;, &#34;property&#34;, 3, &#34;Yellow&#34;
+        )  # Attribute values stay the same
+        cls.test_property2 = Property(&#34;KFC&#34;, &#34;property&#34;, 6, &#34;Red&#34;)  # change attributes
+
+    @classmethod
+    def tearDownClass(cls):
+        Property.reset_class()
+
+    def test_properties_private_go(self):
+        &#34;&#34;&#34;Asserts that none of the class attributes can be accessed directly
+        in the Go object&#34;&#34;&#34;
+        t_go = self.test_go
+        with self.assertRaises(AttributeError):
+            t_go.__name
+        with self.assertRaises(AttributeError):
+            t_go.__square_type
+
+    def test_attributes_private(self):
+        &#34;&#34;&#34;Asserts that none of the class attributes can be accessed directly
+        in the Property object&#34;&#34;&#34;
+        t_prop = self.test_property
+        with self.assertRaises(AttributeError):
+            t_prop.__name
+        with self.assertRaises(AttributeError):
+            t_prop.__square_type
+        with self.assertRaises(AttributeError):
+            t_prop.__price
+        with self.assertRaises(AttributeError):
+            t_prop.__colour
+        with self.assertRaises(AttributeError):
+            t_prop.__owner
+        with self.assertRaises(AttributeError):
+            Property.__property_dict
+
+    def test_attributes_default(self):
+        &#34;&#34;&#34;Asserts that the object attributes are the default values.
+        Also tests the getter methods for the class&#34;&#34;&#34;
+
+        t_go = self.test_go
+        t_prop = self.test_property
+        self.assertTrue(t_go.get_name() == &#34;GO&#34;)
+        self.assertTrue(t_go.get_square_type() == &#34;go&#34;)
+
+        self.assertTrue(t_prop.get_name() == &#34;McD&#34;)
+        self.assertTrue(t_prop.get_square_type() == &#34;property&#34;)
+        self.assertTrue(t_prop.get_price() == 3)
+        self.assertTrue(t_prop.get_owner() == None)
+        self.assertTrue(t_prop.get_colour() == &#34;Yellow&#34;)
+
+    def test_setter(self):
+        &#34;&#34;&#34;Asserts that the class setters are working&#34;&#34;&#34;
+        t_prop2 = self.test_property2
+        t_prop2.set_owner(Player(&#34;Azadesuu&#34;, 0))
+        self.assertTrue(t_prop2.get_owner().get_name() == &#34;Azadesuu&#34;)
+
+    # ------------- Testing Class Methods
+    def test_str(self):
+        &#34;&#34;&#34;Tests the string dunder method&#34;&#34;&#34;
+        t_prop2 = self.test_property2
+        t_prop2.set_owner(Player(&#34;Azadesuu&#34;, 0))
+        print(t_prop2)
+        self.assertTrue(
+            t_prop2.__str__()
+            == (&#34;a Red property, KFC, with price of 6, owned by Azadesuu&#34;)
+        )
+
+    def test_class_properties(self):
+        &#34;&#34;&#34;Checks if the Property&#39;s properties dictionary is correctly
+        collecting all the property objects
+        &#34;&#34;&#34;
+        self.assertTrue(Property.get_colour_num(&#34;Yellow&#34;) == 1)
+        self.assertTrue(Property.get_colour_num(&#34;yellow&#34;) == 1)
+        self.assertTrue(Property.get_colour_num(&#34;Red&#34;) == 1)
+        self.assertTrue(Property.get_colour_num(&#34;red&#34;) == 1)
+        self.assertTrue(Property.get_colour_num(&#34;blue&#34;) == 0)
+
+    def test_property_action_doubled(self):
+        &#34;&#34;&#34;Checks if the class object method is correctly doubling the rent if
+        the player owns all properties of the same colour
+        &#34;&#34;&#34;
+        t_prop2 = self.test_property2
+        p0 = Player(&#34;Azadesu0&#34;, 0)
+        p1 = Player(&#34;Azadesu1&#34;, 1)
+
+        t_prop2.action(p0)
+        t_prop2.action(p1)
+        doubled_rent = t_prop2.get_price() * 2
+        self.assertTrue(p1.get_amount() == (STARTING_AMOUNT - doubled_rent))
+
+    def test_property_action_normal(self):
+        &#34;&#34;&#34;Checks if the class object is correctly collecting rent if a
+        player owns the property (but not all properties in the colour)
+        &#34;&#34;&#34;
+        t_prop2 = self.test_property2
+        p0 = Player(&#34;Azadesu0&#34;, 0)
+        p1 = Player(&#34;Azadesu1&#34;, 1)
+
+        # doesn&#39;t add property to player&#39;s &#34;owned&#34; list
+        # that&#39;s why it&#39;s not doubled
+        t_prop2.set_owner(p0)
+        t_prop2.action(p1)
+        rent = t_prop2.get_price()
+        self.assertTrue(p1.get_amount() == (STARTING_AMOUNT - rent))
+
+
+class TestBoard(unittest.TestCase):
+    &#34;&#34;&#34;A class that contains tests for the Board class
+    methods and attributes&#34;&#34;&#34;
+
+    # Declaring class variables
+    # Loaded player data
+    t_player_data = None
+    # This object&#39;s attribute values will stay the same
+    t_board_data = None
+    # This object&#39;s attribute values will change
+    t_board_data2 = None
+
+    @classmethod
+    def setUpClass(cls):
+        # Resetting the property class dictionary
+        Property.reset_class()
+        # Initialising Board and Player values
+        # Opening JSON files
+        board_f = open(&#34;test_data\\test_board_1.json&#34;)
+        board_f_2 = open(&#34;test_data\\test_board_2.json&#34;)
+        player_f = open(&#34;test_data\\test_players_1.json&#34;)
+
+        # Processing JSON files
+        cls.t_player_data = json.load(player_f)
+        cls.t_board_data = json.load(board_f)
+        cls.t_board_data_2 = json.load(board_f_2)
+
+    def test_attributes_private(self):
+        &#34;&#34;&#34;Ensures that the board attributes are private&#34;&#34;&#34;
+        t_board = Board(self.t_board_data, self.t_player_data)
+        with self.assertRaises(AttributeError):
+            t_board.__square_dict
+        with self.assertRaises(AttributeError):
+            t_board.__player_dict
+        with self.assertRaises(AttributeError):
+            t_board.__NUM_SQUARES
+        with self.assertRaises(AttributeError):
+            t_board.__NUM_PLAYERS
+        with self.assertRaises(AttributeError):
+            t_board.__winners
+
+    def test_attributes_default(self):
+        &#34;&#34;&#34;Tests the default attributes of the board. Also tests the getter
+        methods for the class
+        &#34;&#34;&#34;
+        # Creating board
+        t_board = Board(self.t_board_data, self.t_player_data)
+
+        # Check if correct number of players and squares
+        self.assertTrue(t_board.get_NUM_PLAYERS() == 2)
+        self.assertTrue(t_board.get_NUM_SQUARES() == 4)
+        # Check if default value is assigned
+        self.assertTrue(t_board.get_end_winners() == [])
+        # Check if players have been added correctly
+        players = list(t_board.get_players().values())
+        self.assertTrue((players[0]).get_name() == &#34;Charlotte&#34;)
+        self.assertTrue((players[1]).get_name() == &#34;Sweedal&#34;)
+        # Check if squares have been added correctly
+        squares = list(t_board.get_squares().values())
+        self.assertTrue((squares[0]).get_name() == &#34;GO&#34;)
+        self.assertTrue((squares[1]).get_name() == &#34;The Burvale&#34;)
+        self.assertTrue((squares[2]).get_name() == &#34;Fast Kebabs&#34;)
+        self.assertTrue((squares[3]).get_name() == &#34;The Grand Tofu&#34;)
+
+    # ------------- Testing Class Methods
+    def test_move(self):
+        &#34;&#34;&#34;Checks that the &#39;move&#39; method in Board is functioning&#34;&#34;&#34;
+        # Creating board
+        t_board = Board(self.t_board_data, self.t_player_data)
+        player1 = list(t_board.get_players().values())[0]
+
+        # Move the player around the board
+        t_board.move(player1, t_board.get_NUM_SQUARES())
+        self.assertTrue(player1.get_position() == 0)
+        # Player gets extra money from passing GO
+        self.assertTrue(player1.get_amount() == (STARTING_AMOUNT + GO_AMOUNT))
+
+        # Move the player by 1 step
+        t_board.move(player1, 1)
+        self.assertTrue(player1.get_position() == 1)
+
+
+if __name__ == &#34;__main__&#34;:
+    unittest.main(verbosity=2)</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="test_unit.TestBoard"><code class="flex name class">
+<span>class <span class="ident">TestBoard</span></span>
+<span>(</span><span>methodName='runTest')</span>
+</code></dt>
+<dd>
+<div class="desc"><p>A class that contains tests for the Board class
+methods and attributes</p>
+<p>Create an instance of the class that will use the named test
+method when executed. Raises a ValueError if the instance does
+not have a method with the specified name.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class TestBoard(unittest.TestCase):
+    &#34;&#34;&#34;A class that contains tests for the Board class
+    methods and attributes&#34;&#34;&#34;
+
+    # Declaring class variables
+    # Loaded player data
+    t_player_data = None
+    # This object&#39;s attribute values will stay the same
+    t_board_data = None
+    # This object&#39;s attribute values will change
+    t_board_data2 = None
+
+    @classmethod
+    def setUpClass(cls):
+        # Resetting the property class dictionary
+        Property.reset_class()
+        # Initialising Board and Player values
+        # Opening JSON files
+        board_f = open(&#34;test_data\\test_board_1.json&#34;)
+        board_f_2 = open(&#34;test_data\\test_board_2.json&#34;)
+        player_f = open(&#34;test_data\\test_players_1.json&#34;)
+
+        # Processing JSON files
+        cls.t_player_data = json.load(player_f)
+        cls.t_board_data = json.load(board_f)
+        cls.t_board_data_2 = json.load(board_f_2)
+
+    def test_attributes_private(self):
+        &#34;&#34;&#34;Ensures that the board attributes are private&#34;&#34;&#34;
+        t_board = Board(self.t_board_data, self.t_player_data)
+        with self.assertRaises(AttributeError):
+            t_board.__square_dict
+        with self.assertRaises(AttributeError):
+            t_board.__player_dict
+        with self.assertRaises(AttributeError):
+            t_board.__NUM_SQUARES
+        with self.assertRaises(AttributeError):
+            t_board.__NUM_PLAYERS
+        with self.assertRaises(AttributeError):
+            t_board.__winners
+
+    def test_attributes_default(self):
+        &#34;&#34;&#34;Tests the default attributes of the board. Also tests the getter
+        methods for the class
+        &#34;&#34;&#34;
+        # Creating board
+        t_board = Board(self.t_board_data, self.t_player_data)
+
+        # Check if correct number of players and squares
+        self.assertTrue(t_board.get_NUM_PLAYERS() == 2)
+        self.assertTrue(t_board.get_NUM_SQUARES() == 4)
+        # Check if default value is assigned
+        self.assertTrue(t_board.get_end_winners() == [])
+        # Check if players have been added correctly
+        players = list(t_board.get_players().values())
+        self.assertTrue((players[0]).get_name() == &#34;Charlotte&#34;)
+        self.assertTrue((players[1]).get_name() == &#34;Sweedal&#34;)
+        # Check if squares have been added correctly
+        squares = list(t_board.get_squares().values())
+        self.assertTrue((squares[0]).get_name() == &#34;GO&#34;)
+        self.assertTrue((squares[1]).get_name() == &#34;The Burvale&#34;)
+        self.assertTrue((squares[2]).get_name() == &#34;Fast Kebabs&#34;)
+        self.assertTrue((squares[3]).get_name() == &#34;The Grand Tofu&#34;)
+
+    # ------------- Testing Class Methods
+    def test_move(self):
+        &#34;&#34;&#34;Checks that the &#39;move&#39; method in Board is functioning&#34;&#34;&#34;
+        # Creating board
+        t_board = Board(self.t_board_data, self.t_player_data)
+        player1 = list(t_board.get_players().values())[0]
+
+        # Move the player around the board
+        t_board.move(player1, t_board.get_NUM_SQUARES())
+        self.assertTrue(player1.get_position() == 0)
+        # Player gets extra money from passing GO
+        self.assertTrue(player1.get_amount() == (STARTING_AMOUNT + GO_AMOUNT))
+
+        # Move the player by 1 step
+        t_board.move(player1, 1)
+        self.assertTrue(player1.get_position() == 1)</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>unittest.case.TestCase</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="test_unit.TestBoard.t_board_data"><code class="name">var <span class="ident">t_board_data</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="test_unit.TestBoard.t_board_data2"><code class="name">var <span class="ident">t_board_data2</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="test_unit.TestBoard.t_player_data"><code class="name">var <span class="ident">t_player_data</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Static methods</h3>
+<dl>
+<dt id="test_unit.TestBoard.setUpClass"><code class="name flex">
+<span>def <span class="ident">setUpClass</span></span>(<span>)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Hook method for setting up class fixture before running tests in the class.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@classmethod
+def setUpClass(cls):
+    # Resetting the property class dictionary
+    Property.reset_class()
+    # Initialising Board and Player values
+    # Opening JSON files
+    board_f = open(&#34;test_data\\test_board_1.json&#34;)
+    board_f_2 = open(&#34;test_data\\test_board_2.json&#34;)
+    player_f = open(&#34;test_data\\test_players_1.json&#34;)
+
+    # Processing JSON files
+    cls.t_player_data = json.load(player_f)
+    cls.t_board_data = json.load(board_f)
+    cls.t_board_data_2 = json.load(board_f_2)</code></pre>
+</details>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="test_unit.TestBoard.test_attributes_default"><code class="name flex">
+<span>def <span class="ident">test_attributes_default</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Tests the default attributes of the board. Also tests the getter
+methods for the class</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def test_attributes_default(self):
+    &#34;&#34;&#34;Tests the default attributes of the board. Also tests the getter
+    methods for the class
+    &#34;&#34;&#34;
+    # Creating board
+    t_board = Board(self.t_board_data, self.t_player_data)
+
+    # Check if correct number of players and squares
+    self.assertTrue(t_board.get_NUM_PLAYERS() == 2)
+    self.assertTrue(t_board.get_NUM_SQUARES() == 4)
+    # Check if default value is assigned
+    self.assertTrue(t_board.get_end_winners() == [])
+    # Check if players have been added correctly
+    players = list(t_board.get_players().values())
+    self.assertTrue((players[0]).get_name() == &#34;Charlotte&#34;)
+    self.assertTrue((players[1]).get_name() == &#34;Sweedal&#34;)
+    # Check if squares have been added correctly
+    squares = list(t_board.get_squares().values())
+    self.assertTrue((squares[0]).get_name() == &#34;GO&#34;)
+    self.assertTrue((squares[1]).get_name() == &#34;The Burvale&#34;)
+    self.assertTrue((squares[2]).get_name() == &#34;Fast Kebabs&#34;)
+    self.assertTrue((squares[3]).get_name() == &#34;The Grand Tofu&#34;)</code></pre>
+</details>
+</dd>
+<dt id="test_unit.TestBoard.test_attributes_private"><code class="name flex">
+<span>def <span class="ident">test_attributes_private</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Ensures that the board attributes are private</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def test_attributes_private(self):
+    &#34;&#34;&#34;Ensures that the board attributes are private&#34;&#34;&#34;
+    t_board = Board(self.t_board_data, self.t_player_data)
+    with self.assertRaises(AttributeError):
+        t_board.__square_dict
+    with self.assertRaises(AttributeError):
+        t_board.__player_dict
+    with self.assertRaises(AttributeError):
+        t_board.__NUM_SQUARES
+    with self.assertRaises(AttributeError):
+        t_board.__NUM_PLAYERS
+    with self.assertRaises(AttributeError):
+        t_board.__winners</code></pre>
+</details>
+</dd>
+<dt id="test_unit.TestBoard.test_move"><code class="name flex">
+<span>def <span class="ident">test_move</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Checks that the 'move' method in Board is functioning</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def test_move(self):
+    &#34;&#34;&#34;Checks that the &#39;move&#39; method in Board is functioning&#34;&#34;&#34;
+    # Creating board
+    t_board = Board(self.t_board_data, self.t_player_data)
+    player1 = list(t_board.get_players().values())[0]
+
+    # Move the player around the board
+    t_board.move(player1, t_board.get_NUM_SQUARES())
+    self.assertTrue(player1.get_position() == 0)
+    # Player gets extra money from passing GO
+    self.assertTrue(player1.get_amount() == (STARTING_AMOUNT + GO_AMOUNT))
+
+    # Move the player by 1 step
+    t_board.move(player1, 1)
+    self.assertTrue(player1.get_position() == 1)</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+<dt id="test_unit.TestPlayer"><code class="flex name class">
+<span>class <span class="ident">TestPlayer</span></span>
+<span>(</span><span>methodName='runTest')</span>
+</code></dt>
+<dd>
+<div class="desc"><p>A class that contains tests for the Player class
+methods and attributes</p>
+<p>Create an instance of the class that will use the named test
+method when executed. Raises a ValueError if the instance does
+not have a method with the specified name.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class TestPlayer(unittest.TestCase):
+    &#34;&#34;&#34;A class that contains tests for the Player class
+    methods and attributes&#34;&#34;&#34;
+
+    # Declaring class variables
+    # This object&#39;s attribute values will stay the same
+    test_player = None
+    # This object&#39;s attribute values will change
+    test_player2 = None
+
+    @classmethod
+    def setUpClass(cls):
+        cls.test_player = Player(&#34;Azadesuu&#34;, 0)
+        cls.test_player2 = Player(&#34;Azadesuu&#34;, 0)
+
+    def test_attributes_private(self):
+        &#34;&#34;&#34;Asserts that none of the class attributes can be accessed directly&#34;&#34;&#34;
+        t_player = self.test_player
+        with self.assertRaises(AttributeError):
+            t_player.__player_number
+        with self.assertRaises(AttributeError):
+            t_player.__name
+        with self.assertRaises(AttributeError):
+            t_player.__amount
+        with self.assertRaises(AttributeError):
+            t_player.__properties_owned
+        with self.assertRaises(AttributeError):
+            t_player.__position
+
+    def test_attributes_default(self):
+        &#34;&#34;&#34;Asserts that player attributes are the default values.
+        Also tests the getter methods for the class&#34;&#34;&#34;
+        t_player = self.test_player
+        self.assertTrue(t_player.get_player_number() == 0)
+        self.assertTrue(t_player.get_name() == &#34;Azadesuu&#34;)
+        self.assertTrue(len(t_player.get_properties_owned().keys()) == 0)
+
+        # The starting amount and position is based on classes/constants.py
+        self.assertTrue(t_player.get_amount() == STARTING_AMOUNT)
+        self.assertTrue(t_player.get_position() == STARTING_POSITION)
+
+    def test_setter(self):
+        &#34;&#34;&#34;Asserts that the class setters are working&#34;&#34;&#34;
+        t_player2 = self.test_player2
+        # Sets the player&#39;s amount on hand to 10
+        t_player2.set_amount(10)
+        self.assertTrue(t_player2.get_amount() == 10)
+
+    # ------------- Testing Class Methods
+    def test_bankrupt(self):
+        &#34;&#34;&#34;Tests if the class is correctly checking that the
+        player is bankrupt
+        &#34;&#34;&#34;
+        t_player2 = self.test_player2
+        t_player2.set_amount(10)
+        self.assertTrue(t_player2.is_bankrupt() == False)
+        t_player2.set_amount(-1)
+        self.assertTrue(t_player2.is_bankrupt())
+
+    def test_str(self):
+        t_player = self.test_player
+        self.assertTrue(t_player.__str__() == &#34;Player Azadesuu is at 0 with $16&#34;)</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>unittest.case.TestCase</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="test_unit.TestPlayer.test_player"><code class="name">var <span class="ident">test_player</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="test_unit.TestPlayer.test_player2"><code class="name">var <span class="ident">test_player2</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Static methods</h3>
+<dl>
+<dt id="test_unit.TestPlayer.setUpClass"><code class="name flex">
+<span>def <span class="ident">setUpClass</span></span>(<span>)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Hook method for setting up class fixture before running tests in the class.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@classmethod
+def setUpClass(cls):
+    cls.test_player = Player(&#34;Azadesuu&#34;, 0)
+    cls.test_player2 = Player(&#34;Azadesuu&#34;, 0)</code></pre>
+</details>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="test_unit.TestPlayer.test_attributes_default"><code class="name flex">
+<span>def <span class="ident">test_attributes_default</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Asserts that player attributes are the default values.
+Also tests the getter methods for the class</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def test_attributes_default(self):
+    &#34;&#34;&#34;Asserts that player attributes are the default values.
+    Also tests the getter methods for the class&#34;&#34;&#34;
+    t_player = self.test_player
+    self.assertTrue(t_player.get_player_number() == 0)
+    self.assertTrue(t_player.get_name() == &#34;Azadesuu&#34;)
+    self.assertTrue(len(t_player.get_properties_owned().keys()) == 0)
+
+    # The starting amount and position is based on classes/constants.py
+    self.assertTrue(t_player.get_amount() == STARTING_AMOUNT)
+    self.assertTrue(t_player.get_position() == STARTING_POSITION)</code></pre>
+</details>
+</dd>
+<dt id="test_unit.TestPlayer.test_attributes_private"><code class="name flex">
+<span>def <span class="ident">test_attributes_private</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Asserts that none of the class attributes can be accessed directly</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def test_attributes_private(self):
+    &#34;&#34;&#34;Asserts that none of the class attributes can be accessed directly&#34;&#34;&#34;
+    t_player = self.test_player
+    with self.assertRaises(AttributeError):
+        t_player.__player_number
+    with self.assertRaises(AttributeError):
+        t_player.__name
+    with self.assertRaises(AttributeError):
+        t_player.__amount
+    with self.assertRaises(AttributeError):
+        t_player.__properties_owned
+    with self.assertRaises(AttributeError):
+        t_player.__position</code></pre>
+</details>
+</dd>
+<dt id="test_unit.TestPlayer.test_bankrupt"><code class="name flex">
+<span>def <span class="ident">test_bankrupt</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Tests if the class is correctly checking that the
+player is bankrupt</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def test_bankrupt(self):
+    &#34;&#34;&#34;Tests if the class is correctly checking that the
+    player is bankrupt
+    &#34;&#34;&#34;
+    t_player2 = self.test_player2
+    t_player2.set_amount(10)
+    self.assertTrue(t_player2.is_bankrupt() == False)
+    t_player2.set_amount(-1)
+    self.assertTrue(t_player2.is_bankrupt())</code></pre>
+</details>
+</dd>
+<dt id="test_unit.TestPlayer.test_setter"><code class="name flex">
+<span>def <span class="ident">test_setter</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Asserts that the class setters are working</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def test_setter(self):
+    &#34;&#34;&#34;Asserts that the class setters are working&#34;&#34;&#34;
+    t_player2 = self.test_player2
+    # Sets the player&#39;s amount on hand to 10
+    t_player2.set_amount(10)
+    self.assertTrue(t_player2.get_amount() == 10)</code></pre>
+</details>
+</dd>
+<dt id="test_unit.TestPlayer.test_str"><code class="name flex">
+<span>def <span class="ident">test_str</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def test_str(self):
+    t_player = self.test_player
+    self.assertTrue(t_player.__str__() == &#34;Player Azadesuu is at 0 with $16&#34;)</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+<dt id="test_unit.TestSquare"><code class="flex name class">
+<span>class <span class="ident">TestSquare</span></span>
+<span>(</span><span>methodName='runTest')</span>
+</code></dt>
+<dd>
+<div class="desc"><p>A class that contains tests for the Square class
+methods and attributes</p>
+<p>Create an instance of the class that will use the named test
+method when executed. Raises a ValueError if the instance does
+not have a method with the specified name.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class TestSquare(unittest.TestCase):
+    &#34;&#34;&#34;A class that contains tests for the Square class
+    methods and attributes&#34;&#34;&#34;
+
+    # This object&#39;s attribute values will stay the same
+    test_go = None
+    # This object&#39;s attribute values will stay the same
+    test_property = None
+    # This object&#39;s attribute values will change
+    test_property2 = None
+
+    @classmethod
+    def setUpClass(cls):
+        # Resetting the property class dictionary
+        Property.reset_class()
+        # Go object
+        cls.test_go = Go(&#34;GO&#34;, &#34;go&#34;)  # attribute values stay the same
+        # Property objects
+        cls.test_property = Property(
+            &#34;McD&#34;, &#34;property&#34;, 3, &#34;Yellow&#34;
+        )  # Attribute values stay the same
+        cls.test_property2 = Property(&#34;KFC&#34;, &#34;property&#34;, 6, &#34;Red&#34;)  # change attributes
+
+    @classmethod
+    def tearDownClass(cls):
+        Property.reset_class()
+
+    def test_properties_private_go(self):
+        &#34;&#34;&#34;Asserts that none of the class attributes can be accessed directly
+        in the Go object&#34;&#34;&#34;
+        t_go = self.test_go
+        with self.assertRaises(AttributeError):
+            t_go.__name
+        with self.assertRaises(AttributeError):
+            t_go.__square_type
+
+    def test_attributes_private(self):
+        &#34;&#34;&#34;Asserts that none of the class attributes can be accessed directly
+        in the Property object&#34;&#34;&#34;
+        t_prop = self.test_property
+        with self.assertRaises(AttributeError):
+            t_prop.__name
+        with self.assertRaises(AttributeError):
+            t_prop.__square_type
+        with self.assertRaises(AttributeError):
+            t_prop.__price
+        with self.assertRaises(AttributeError):
+            t_prop.__colour
+        with self.assertRaises(AttributeError):
+            t_prop.__owner
+        with self.assertRaises(AttributeError):
+            Property.__property_dict
+
+    def test_attributes_default(self):
+        &#34;&#34;&#34;Asserts that the object attributes are the default values.
+        Also tests the getter methods for the class&#34;&#34;&#34;
+
+        t_go = self.test_go
+        t_prop = self.test_property
+        self.assertTrue(t_go.get_name() == &#34;GO&#34;)
+        self.assertTrue(t_go.get_square_type() == &#34;go&#34;)
+
+        self.assertTrue(t_prop.get_name() == &#34;McD&#34;)
+        self.assertTrue(t_prop.get_square_type() == &#34;property&#34;)
+        self.assertTrue(t_prop.get_price() == 3)
+        self.assertTrue(t_prop.get_owner() == None)
+        self.assertTrue(t_prop.get_colour() == &#34;Yellow&#34;)
+
+    def test_setter(self):
+        &#34;&#34;&#34;Asserts that the class setters are working&#34;&#34;&#34;
+        t_prop2 = self.test_property2
+        t_prop2.set_owner(Player(&#34;Azadesuu&#34;, 0))
+        self.assertTrue(t_prop2.get_owner().get_name() == &#34;Azadesuu&#34;)
+
+    # ------------- Testing Class Methods
+    def test_str(self):
+        &#34;&#34;&#34;Tests the string dunder method&#34;&#34;&#34;
+        t_prop2 = self.test_property2
+        t_prop2.set_owner(Player(&#34;Azadesuu&#34;, 0))
+        print(t_prop2)
+        self.assertTrue(
+            t_prop2.__str__()
+            == (&#34;a Red property, KFC, with price of 6, owned by Azadesuu&#34;)
+        )
+
+    def test_class_properties(self):
+        &#34;&#34;&#34;Checks if the Property&#39;s properties dictionary is correctly
+        collecting all the property objects
+        &#34;&#34;&#34;
+        self.assertTrue(Property.get_colour_num(&#34;Yellow&#34;) == 1)
+        self.assertTrue(Property.get_colour_num(&#34;yellow&#34;) == 1)
+        self.assertTrue(Property.get_colour_num(&#34;Red&#34;) == 1)
+        self.assertTrue(Property.get_colour_num(&#34;red&#34;) == 1)
+        self.assertTrue(Property.get_colour_num(&#34;blue&#34;) == 0)
+
+    def test_property_action_doubled(self):
+        &#34;&#34;&#34;Checks if the class object method is correctly doubling the rent if
+        the player owns all properties of the same colour
+        &#34;&#34;&#34;
+        t_prop2 = self.test_property2
+        p0 = Player(&#34;Azadesu0&#34;, 0)
+        p1 = Player(&#34;Azadesu1&#34;, 1)
+
+        t_prop2.action(p0)
+        t_prop2.action(p1)
+        doubled_rent = t_prop2.get_price() * 2
+        self.assertTrue(p1.get_amount() == (STARTING_AMOUNT - doubled_rent))
+
+    def test_property_action_normal(self):
+        &#34;&#34;&#34;Checks if the class object is correctly collecting rent if a
+        player owns the property (but not all properties in the colour)
+        &#34;&#34;&#34;
+        t_prop2 = self.test_property2
+        p0 = Player(&#34;Azadesu0&#34;, 0)
+        p1 = Player(&#34;Azadesu1&#34;, 1)
+
+        # doesn&#39;t add property to player&#39;s &#34;owned&#34; list
+        # that&#39;s why it&#39;s not doubled
+        t_prop2.set_owner(p0)
+        t_prop2.action(p1)
+        rent = t_prop2.get_price()
+        self.assertTrue(p1.get_amount() == (STARTING_AMOUNT - rent))</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>unittest.case.TestCase</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="test_unit.TestSquare.test_go"><code class="name">var <span class="ident">test_go</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="test_unit.TestSquare.test_property"><code class="name">var <span class="ident">test_property</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="test_unit.TestSquare.test_property2"><code class="name">var <span class="ident">test_property2</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Static methods</h3>
+<dl>
+<dt id="test_unit.TestSquare.setUpClass"><code class="name flex">
+<span>def <span class="ident">setUpClass</span></span>(<span>)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Hook method for setting up class fixture before running tests in the class.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@classmethod
+def setUpClass(cls):
+    # Resetting the property class dictionary
+    Property.reset_class()
+    # Go object
+    cls.test_go = Go(&#34;GO&#34;, &#34;go&#34;)  # attribute values stay the same
+    # Property objects
+    cls.test_property = Property(
+        &#34;McD&#34;, &#34;property&#34;, 3, &#34;Yellow&#34;
+    )  # Attribute values stay the same
+    cls.test_property2 = Property(&#34;KFC&#34;, &#34;property&#34;, 6, &#34;Red&#34;)  # change attributes</code></pre>
+</details>
+</dd>
+<dt id="test_unit.TestSquare.tearDownClass"><code class="name flex">
+<span>def <span class="ident">tearDownClass</span></span>(<span>)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Hook method for deconstructing the class fixture after running all tests in the class.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@classmethod
+def tearDownClass(cls):
+    Property.reset_class()</code></pre>
+</details>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="test_unit.TestSquare.test_attributes_default"><code class="name flex">
+<span>def <span class="ident">test_attributes_default</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Asserts that the object attributes are the default values.
+Also tests the getter methods for the class</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def test_attributes_default(self):
+    &#34;&#34;&#34;Asserts that the object attributes are the default values.
+    Also tests the getter methods for the class&#34;&#34;&#34;
+
+    t_go = self.test_go
+    t_prop = self.test_property
+    self.assertTrue(t_go.get_name() == &#34;GO&#34;)
+    self.assertTrue(t_go.get_square_type() == &#34;go&#34;)
+
+    self.assertTrue(t_prop.get_name() == &#34;McD&#34;)
+    self.assertTrue(t_prop.get_square_type() == &#34;property&#34;)
+    self.assertTrue(t_prop.get_price() == 3)
+    self.assertTrue(t_prop.get_owner() == None)
+    self.assertTrue(t_prop.get_colour() == &#34;Yellow&#34;)</code></pre>
+</details>
+</dd>
+<dt id="test_unit.TestSquare.test_attributes_private"><code class="name flex">
+<span>def <span class="ident">test_attributes_private</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Asserts that none of the class attributes can be accessed directly
+in the Property object</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def test_attributes_private(self):
+    &#34;&#34;&#34;Asserts that none of the class attributes can be accessed directly
+    in the Property object&#34;&#34;&#34;
+    t_prop = self.test_property
+    with self.assertRaises(AttributeError):
+        t_prop.__name
+    with self.assertRaises(AttributeError):
+        t_prop.__square_type
+    with self.assertRaises(AttributeError):
+        t_prop.__price
+    with self.assertRaises(AttributeError):
+        t_prop.__colour
+    with self.assertRaises(AttributeError):
+        t_prop.__owner
+    with self.assertRaises(AttributeError):
+        Property.__property_dict</code></pre>
+</details>
+</dd>
+<dt id="test_unit.TestSquare.test_class_properties"><code class="name flex">
+<span>def <span class="ident">test_class_properties</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Checks if the Property's properties dictionary is correctly
+collecting all the property objects</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def test_class_properties(self):
+    &#34;&#34;&#34;Checks if the Property&#39;s properties dictionary is correctly
+    collecting all the property objects
+    &#34;&#34;&#34;
+    self.assertTrue(Property.get_colour_num(&#34;Yellow&#34;) == 1)
+    self.assertTrue(Property.get_colour_num(&#34;yellow&#34;) == 1)
+    self.assertTrue(Property.get_colour_num(&#34;Red&#34;) == 1)
+    self.assertTrue(Property.get_colour_num(&#34;red&#34;) == 1)
+    self.assertTrue(Property.get_colour_num(&#34;blue&#34;) == 0)</code></pre>
+</details>
+</dd>
+<dt id="test_unit.TestSquare.test_properties_private_go"><code class="name flex">
+<span>def <span class="ident">test_properties_private_go</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Asserts that none of the class attributes can be accessed directly
+in the Go object</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def test_properties_private_go(self):
+    &#34;&#34;&#34;Asserts that none of the class attributes can be accessed directly
+    in the Go object&#34;&#34;&#34;
+    t_go = self.test_go
+    with self.assertRaises(AttributeError):
+        t_go.__name
+    with self.assertRaises(AttributeError):
+        t_go.__square_type</code></pre>
+</details>
+</dd>
+<dt id="test_unit.TestSquare.test_property_action_doubled"><code class="name flex">
+<span>def <span class="ident">test_property_action_doubled</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Checks if the class object method is correctly doubling the rent if
+the player owns all properties of the same colour</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def test_property_action_doubled(self):
+    &#34;&#34;&#34;Checks if the class object method is correctly doubling the rent if
+    the player owns all properties of the same colour
+    &#34;&#34;&#34;
+    t_prop2 = self.test_property2
+    p0 = Player(&#34;Azadesu0&#34;, 0)
+    p1 = Player(&#34;Azadesu1&#34;, 1)
+
+    t_prop2.action(p0)
+    t_prop2.action(p1)
+    doubled_rent = t_prop2.get_price() * 2
+    self.assertTrue(p1.get_amount() == (STARTING_AMOUNT - doubled_rent))</code></pre>
+</details>
+</dd>
+<dt id="test_unit.TestSquare.test_property_action_normal"><code class="name flex">
+<span>def <span class="ident">test_property_action_normal</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Checks if the class object is correctly collecting rent if a
+player owns the property (but not all properties in the colour)</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def test_property_action_normal(self):
+    &#34;&#34;&#34;Checks if the class object is correctly collecting rent if a
+    player owns the property (but not all properties in the colour)
+    &#34;&#34;&#34;
+    t_prop2 = self.test_property2
+    p0 = Player(&#34;Azadesu0&#34;, 0)
+    p1 = Player(&#34;Azadesu1&#34;, 1)
+
+    # doesn&#39;t add property to player&#39;s &#34;owned&#34; list
+    # that&#39;s why it&#39;s not doubled
+    t_prop2.set_owner(p0)
+    t_prop2.action(p1)
+    rent = t_prop2.get_price()
+    self.assertTrue(p1.get_amount() == (STARTING_AMOUNT - rent))</code></pre>
+</details>
+</dd>
+<dt id="test_unit.TestSquare.test_setter"><code class="name flex">
+<span>def <span class="ident">test_setter</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Asserts that the class setters are working</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def test_setter(self):
+    &#34;&#34;&#34;Asserts that the class setters are working&#34;&#34;&#34;
+    t_prop2 = self.test_property2
+    t_prop2.set_owner(Player(&#34;Azadesuu&#34;, 0))
+    self.assertTrue(t_prop2.get_owner().get_name() == &#34;Azadesuu&#34;)</code></pre>
+</details>
+</dd>
+<dt id="test_unit.TestSquare.test_str"><code class="name flex">
+<span>def <span class="ident">test_str</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Tests the string dunder method</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def test_str(self):
+    &#34;&#34;&#34;Tests the string dunder method&#34;&#34;&#34;
+    t_prop2 = self.test_property2
+    t_prop2.set_owner(Player(&#34;Azadesuu&#34;, 0))
+    print(t_prop2)
+    self.assertTrue(
+        t_prop2.__str__()
+        == (&#34;a Red property, KFC, with price of 6, owned by Azadesuu&#34;)
+    )</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="test_unit.TestBoard" href="#test_unit.TestBoard">TestBoard</a></code></h4>
+<ul class="">
+<li><code><a title="test_unit.TestBoard.setUpClass" href="#test_unit.TestBoard.setUpClass">setUpClass</a></code></li>
+<li><code><a title="test_unit.TestBoard.t_board_data" href="#test_unit.TestBoard.t_board_data">t_board_data</a></code></li>
+<li><code><a title="test_unit.TestBoard.t_board_data2" href="#test_unit.TestBoard.t_board_data2">t_board_data2</a></code></li>
+<li><code><a title="test_unit.TestBoard.t_player_data" href="#test_unit.TestBoard.t_player_data">t_player_data</a></code></li>
+<li><code><a title="test_unit.TestBoard.test_attributes_default" href="#test_unit.TestBoard.test_attributes_default">test_attributes_default</a></code></li>
+<li><code><a title="test_unit.TestBoard.test_attributes_private" href="#test_unit.TestBoard.test_attributes_private">test_attributes_private</a></code></li>
+<li><code><a title="test_unit.TestBoard.test_move" href="#test_unit.TestBoard.test_move">test_move</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="test_unit.TestPlayer" href="#test_unit.TestPlayer">TestPlayer</a></code></h4>
+<ul class="">
+<li><code><a title="test_unit.TestPlayer.setUpClass" href="#test_unit.TestPlayer.setUpClass">setUpClass</a></code></li>
+<li><code><a title="test_unit.TestPlayer.test_attributes_default" href="#test_unit.TestPlayer.test_attributes_default">test_attributes_default</a></code></li>
+<li><code><a title="test_unit.TestPlayer.test_attributes_private" href="#test_unit.TestPlayer.test_attributes_private">test_attributes_private</a></code></li>
+<li><code><a title="test_unit.TestPlayer.test_bankrupt" href="#test_unit.TestPlayer.test_bankrupt">test_bankrupt</a></code></li>
+<li><code><a title="test_unit.TestPlayer.test_player" href="#test_unit.TestPlayer.test_player">test_player</a></code></li>
+<li><code><a title="test_unit.TestPlayer.test_player2" href="#test_unit.TestPlayer.test_player2">test_player2</a></code></li>
+<li><code><a title="test_unit.TestPlayer.test_setter" href="#test_unit.TestPlayer.test_setter">test_setter</a></code></li>
+<li><code><a title="test_unit.TestPlayer.test_str" href="#test_unit.TestPlayer.test_str">test_str</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="test_unit.TestSquare" href="#test_unit.TestSquare">TestSquare</a></code></h4>
+<ul class="">
+<li><code><a title="test_unit.TestSquare.setUpClass" href="#test_unit.TestSquare.setUpClass">setUpClass</a></code></li>
+<li><code><a title="test_unit.TestSquare.tearDownClass" href="#test_unit.TestSquare.tearDownClass">tearDownClass</a></code></li>
+<li><code><a title="test_unit.TestSquare.test_attributes_default" href="#test_unit.TestSquare.test_attributes_default">test_attributes_default</a></code></li>
+<li><code><a title="test_unit.TestSquare.test_attributes_private" href="#test_unit.TestSquare.test_attributes_private">test_attributes_private</a></code></li>
+<li><code><a title="test_unit.TestSquare.test_class_properties" href="#test_unit.TestSquare.test_class_properties">test_class_properties</a></code></li>
+<li><code><a title="test_unit.TestSquare.test_go" href="#test_unit.TestSquare.test_go">test_go</a></code></li>
+<li><code><a title="test_unit.TestSquare.test_properties_private_go" href="#test_unit.TestSquare.test_properties_private_go">test_properties_private_go</a></code></li>
+<li><code><a title="test_unit.TestSquare.test_property" href="#test_unit.TestSquare.test_property">test_property</a></code></li>
+<li><code><a title="test_unit.TestSquare.test_property2" href="#test_unit.TestSquare.test_property2">test_property2</a></code></li>
+<li><code><a title="test_unit.TestSquare.test_property_action_doubled" href="#test_unit.TestSquare.test_property_action_doubled">test_property_action_doubled</a></code></li>
+<li><code><a title="test_unit.TestSquare.test_property_action_normal" href="#test_unit.TestSquare.test_property_action_normal">test_property_action_normal</a></code></li>
+<li><code><a title="test_unit.TestSquare.test_setter" href="#test_unit.TestSquare.test_setter">test_setter</a></code></li>
+<li><code><a title="test_unit.TestSquare.test_str" href="#test_unit.TestSquare.test_str">test_str</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.10.0</a>.</p>
+</footer>
+</body>
+</html>
