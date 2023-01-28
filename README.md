@@ -40,6 +40,7 @@ These variables can by simply changed in `classes/constants.py`
 | `STARTING_POSITION` | `int`  | 0         | The position where the players start.                                                          |
 | `STARTING_AMOUNT`   | `int`  | 16        | The amount that players start with.                                                            |
 | `GO_AMOUNT`         | `int`  | 1         | The amount that players get when passing through Go.                                           |
+| `BANKRUPTCY_AMOUNT` | `int`  | The amount where players are considered bankrupt.                                              |
 | `PRINT_TURNS`       | `bool` | `False` | The information of each player and their turn will be output onto the console                  |
 | `PRINT_RESULTS`     | `bool` | `True`  | The final statistics of the game will be printed. That is, the answers to the questions given. |
 
