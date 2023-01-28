@@ -117,6 +117,7 @@ class Board:
         if len(square_list) == 0:
             # no squares available
             return squares
+        # Code shortened for demonstration purposes..
         # Processing Square object data
         for i in range(len(square_list)):
             data = square_list[i]
@@ -125,7 +126,6 @@ class Board:
                 squares[i] = Property(
                     data["name"], data["type"], data["price"], data["colour"]
                 )
-
             if data["type"] == "go":
                 # GO square
                 squares[i] = Go(data["name"], data["type"])

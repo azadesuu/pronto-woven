@@ -128,12 +128,13 @@ class Player:
         self.__properties_owned[property.get_colour()].append(property)
 
     def is_bankrupt(self):
-        """Returns true if the player has less than or equal to 0 dollars
+        """Returns true if the player has less than or equal to bankruptcy
+        amount
 
         :return: True if the player has 0 dollars or less, else False.
         :rtype: bool
         """
-        if self.get_amount() <= 0:
+        if self.get_amount() <= BANKRUPTCY_AMOUNT:
             return True
         return False
 

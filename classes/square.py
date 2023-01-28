@@ -26,15 +26,7 @@ class Square:
         self.__name = name
         self.__square_type = square_type
 
-    # interface
-    def action(self, player: Player):
-        """The action the player performs when it lands on the Square
-
-        :param player: The current performing player
-        :type player: Player
-        """
-        pass
-
+    # ------------- Class getters and setters
     def get_name(self):
         """Returns the square's name
 
@@ -51,10 +43,20 @@ class Square:
         """
         return self.__square_type
 
+    # ------------- Class Interface
+    def action(self, player: Player):
+        """The action the player performs when it lands on the Square
+
+        :param player: The current performing player
+        :type player: Player
+        """
+        pass
+
 
 class Go(Square):
     """Go is a subclass of Square. It inherits state and behavior from
-    the Square class. It is initialised the same way as a Square
+    the Square class. It is initialised the same way as a Square, with
+    __square_type as "go" for this simulation
 
     :param Square: Parent class
     :type Square: Square
@@ -72,7 +74,8 @@ class Go(Square):
 
 class Property(Square):
     """Property is a subclass of Square. It inherits state and behavior from
-    the Square class. It is initialised differently from its ancestor class.
+    the Square class. It is initialised differently from its ancestor class,
+    with __square_type as "property" for this simulation
 
     :param Square: Parent class
     :type Square: Square
@@ -108,7 +111,7 @@ class Property(Square):
         # Private method
         self.__add_property(self)
 
-    # Getter and Setter Methods
+    # ------------- Class getters and setters
     def get_price(self):
         """Returns the property price/rent
 
@@ -141,6 +144,7 @@ class Property(Square):
         """
         self.__owner = player
 
+    # ------------- Class Methods
     @classmethod
     def __add_property(cls, prop):
         """Adds the property to the property dictionary that contains all
@@ -149,7 +153,7 @@ class Property(Square):
         :param property: A new property object
         :type property: Property
         """
-        # adding properties to list
+        # Adding properties to dictionary by colour
         colour = prop.get_colour()
         (cls.__property_dict[colour]).append(copy(prop))
 
@@ -189,8 +193,8 @@ class Property(Square):
         if len(owner_properties[property_colour]) == self.get_colour_num(
             property_colour
         ):
-            # if the current owner owns all the properties in the same colour
-            # the rent is doubled
+            # If the current owner owns all the properties in the same colour-
+            # -the rent is doubled
             rent *= 2
 
         # Making the assumption that if the player cannot pay rent,-
@@ -228,6 +232,6 @@ class Property(Square):
 
     @classmethod
     def reset_class(self):
-        """Clears data about board properties from the class"""
+        """Clears information regarding board properties from the class"""
         self.__property_dict.clear()
         self.__property_dict = defaultdict(list)
