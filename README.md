@@ -6,7 +6,7 @@ I decided to write my report in the README instead of the PDF for easier access.
 
 I wanted this application to be as extensible as possible, hence I applied as many OOP practices as I could to make it easier for customization. This includes Encapsulation (private methods and variables), Inheritance (Square superclass), and Abstraction (Property, Go).
 
-My final answers to the given questions can be found under the [Results ](#results)section, or `results.txt` in the directory.
+My final answers to the given questions can be found under the [Results ](#-results)section, or `results.txt` in the directory.
 
 ### Side Note
 
@@ -25,7 +25,7 @@ I really wanted to challenge myself and learn Ruby on Rails, but I don't own a M
 * [Extensibility](#extensibility)
   * [Simulation Environment](#simulation-environment)
   * [Extra Square types and Properties](#extra-square-types-and-properties)
-* [Results](#results)
+* [Results](#-results)
   * [Roll 1](#roll-1)
   * [Roll 2](#roll-2)
 
