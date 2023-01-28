@@ -208,8 +208,10 @@ class Property(Square):
                 self.get_price(),
                 "None",
             )
-        return "Square is a %s with price of %d, owned by %s" % (
+        return "Square is a %s %s, %s, with price of %d, owned by %s" % (
+            self.get_colour(),
             self.get_square_type(),
+            self.get_name(),
             self.get_price(),
             self.get_owner().get_name(),
         )

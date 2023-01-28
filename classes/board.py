@@ -44,6 +44,21 @@ class Board:
         self.__winners = list()
 
     # ------------- Class getters and setters
+    def get_NUM_PLAYERS(self):
+        """Returns the total number of players playing the game
+
+        :return: The total number of players
+        :rtype: int
+        """
+        return self.__NUM_PLAYERS
+
+    def get_NUM_SQUARES(self):
+        """Returns the total number of squares on the board
+
+        :return: The total number of squares
+        :rtype: int
+        """
+        return self.__NUM_SQUARES
 
     def get_players(self):
         """Returns all player data
@@ -60,22 +75,6 @@ class Board:
         :rtype: dict
         """
         return self.__square_dict
-
-    def get_NUM_PLAYERS(self):
-        """Returns the total number of players playing the game
-
-        :return: The total number of players
-        :rtype: int
-        """
-        return self.__NUM_PLAYERS
-
-    def get_NUM_SQUARES(self):
-        """Returns the total number of squares on the board
-
-        :return: The total number of squares
-        :rtype: int
-        """
-        return self.__NUM_SQUARES
 
     def get_end_winners(self):
         """Gets the list of winners at the end of a game
@@ -132,8 +131,7 @@ class Board:
                 squares[i] = Go(data["name"], data["type"])
         return squares
 
-    # ------------- Class Methods
-    def add_winner(self, player):
+    def __add_winner(self, player):
         """Appends the winning player to the winners list
 
         :param player: The winning player
@@ -141,6 +139,7 @@ class Board:
         """
         self.__winners.append(player)
 
+    # ------------- Class Methods
     def simulate(self, rolls):
         """Simulates the board game with the given data and determined dice
         rolls. Will print the board data at the end of the game
@@ -154,14 +153,17 @@ class Board:
             # The next player to move
             player_number = i % self.get_NUM_PLAYERS()
             player = (self.get_players())[player_number]
+            # Print statements
+            if (PRINT_TURNS) and (player_number == 0):
+                print("---TURN %d---" % (i // self.get_NUM_PLAYERS()))
             # Player is moved
             self.move(player, steps)
             # The game ends when a player is bankrupt
             if player.is_bankrupt():
                 break
-        # adds the winners to the Board's winner list
+        # Adds the winners to the Board's winner list
         self.get_winners()
-        # resets the class property dictionary
+        # Resets the class property dictionary
         Property.reset_class()
 
     def move(self, player, steps):
@@ -186,6 +188,11 @@ class Board:
         # Player performs action on the square
         squares = self.get_squares()
         squares[new_position].action(player)
+        if PRINT_TURNS:
+            print("Steps taken: %d" % (steps))
+            print(player)
+            print(squares[new_position])
+            print()
 
     def __str__(self):
         """Prints information about the Board object, including: current
@@ -229,7 +236,7 @@ class Board:
             if player_amount == max_amount:
                 # Player is a winner if their amount is the maximum
                 if winner_empty:
-                    self.add_winner(curr_player)
+                    self.__add_winner(curr_player)
                 winner_string += "Player %d, %s, is a winner with $%d\n" % (
                     num,
                     curr_player.get_name(),

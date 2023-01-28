@@ -22,11 +22,12 @@ def __main__():
     rolls_1_f.close()
     rolls_2_f.close()
 
-    board = Board(board_data, player_data)
-    board.simulate(rolls_1_data)
-    print(board)
-    board.simulate(rolls_2_data)
-    print(board)
+    board1 = Board(board_data, player_data)
+    board1.simulate(rolls_1_data)
+    print(board1)
+    board2 = Board(board_data, player_data)
+    board2.simulate(rolls_2_data)
+    print(board2)
 
 
 __main__()
