@@ -1,4 +1,4 @@
-## Introduction
+## 👐Introduction
 
 Hi there! This is my project for Pronto Software's Woven Monopoly project.
 
@@ -26,9 +26,9 @@ I really wanted to challenge myself and learn Ruby on Rails, but I don't own a M
   * [Extra Square types and Properties](#extra-square-types-and-properties)
 * [Results](#results)
   * [Roll 1](#roll-1)
-  * Roll 2
+  * [Roll 2](#roll-2)
 
-## Running Instructions
+## 🏢 Running Instructions
 
 ### Simulation Variables
 
@@ -64,7 +64,7 @@ python test_unit.py
 python test_integrated.py
 ```
 
-## Assumptions
+## 👾 Assumptions
 
 There were few considerations that I asked to clarify in my email. Since these factors were left to personal intepretation, I decided to list my assumptions here.
 
@@ -88,7 +88,7 @@ In the original Monopoly, the value of each player's properties is not accounted
 
 The other rules are assumed to solidify my approach to this project.
 
-## Approach
+## 📰 Approach
 
 The first step was to plan the architecture of the program.
 
@@ -98,7 +98,7 @@ The first step was to plan the architecture of the program.
 
 I wrote docstrings for each class and method, and for the test files for the program. The documentation PDF is provided under `woven_monopoly.pdf`
 
-## Extensibility
+## 📁 Extensibility
 
 Since the program is based on a lot Object Oriented Practices, I believe it is easy to integrate new Squares, Board methods, and such, to accommodate new requirements in the future. Some considerations are detailed below:
 
@@ -151,7 +151,7 @@ The Square class can be further extended. Some instructions to make a new `Jail`
         return squares
 ```
 
-## Results
+## 🔓 Results
 
 The results can be seen if you set `PRINT_RESULTS` to `True` in the `classes/constants.py` file, and run the main program using
 
@@ -199,7 +199,7 @@ Player 2, Charlotte, is at position 0
 Player 3, Sweedal, is at position 8
 ```
 
-## Woven coding test
+## ℹ️ Woven coding test
 
 Your task is to write an application to play the game of Woven Monopoly.
 
