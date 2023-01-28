@@ -1,6 +1,49 @@
-## Instructions
+## Introduction
 
+Hi there! This is my project for Pronto Software's Woven Monopoly project.
+
+I decided to write my report in the README instead of the PDF for easier access. The README includes my thought process, design architecture, testing/running details, and so on. Here's the contents list:
+Running Instructions
+
+I wanted this application to be as extensible as possible, hence I applied as many OOP practices as I could to make it easier for customization.
+
+### Side Note
+
+I really wanted to challenge myself and learn Ruby on Rails, but I don't own a Mac plusthe process of installation on Windows was too difficult and time-consuming. So I opted to challenge myself by using Python instead. It was a fun learning process and I learned a lot of new techniques, including the `unittest` suite as well as Python folder structuring.
+
+## 🍀 Table of Contents
+
+* [Running Instructions](#running-instructions)
+* Assumptions
+* Approach
+* Extensibility
+
+## Running Instructions
+
+**Main:**
 ``python -m __init__``
+**Unit Tests:**
+``python test_unit.py``
+**Integration Tests:**
+``python test_integrated.py``
+
+## Assumptions
+
+There were few considerations that I asked to clarify in my email, but the such was left to personal intepretation. Hence, I decided to list these assumptions here.
+
+1. **Bankruptcy** entails that the player has **0 dollars or less**.
+2. The player will **empty their wallets** to the property owner if they cannot afford the full rent. That is, the player will give whatever amount they have on hand to the owner.
+3. If the player lands on a property they cannot afford to buy, they will go into debt. That is, they will have negative dollars
+
+#### Reasons for Assumptions
+
+3. Rules demand that *'If you land on a property, you must buy it'*
+
+## Approach
+
+## Extensibility
+
+## Conclusion
 
 ## Woven coding test
 
