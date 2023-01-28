@@ -15,19 +15,19 @@ I really wanted to challenge myself and learn Ruby on Rails, but I don't own a M
 ## 🍀 Table of Contents
 
 * [Running Instructions](#-running-instructions)
-  * [Simulation Variables](#-simulation-variables)
-  * [Console commands](#-console-commands)
+  * [Simulation Variables](#simulation-variables)
+  * [Console commands](#console-commands)
 * [Assumptions](#-assumptions)
-  * [Reasons for Assumptions](#-reasons-for-assumptions)
+  * [Reasons for Assumptions](#reasons-for-assumptions)
 * [Approach](#-approach)
-  * [Architectural Diagrams](#-architectural-diagrams)
-  * [Class Documentation](#-class-documentation)
+  * [Architectural Diagrams](#architectural-diagrams)
+  * [Class Documentation](#class-documentation)
 * [Extensibility](#-extensibility)
-  * [Simulation Environment](#-simulation-environment)
-  * [Extra Square types and Properties](#-extra-square-types-and-properties)
+  * [Simulation Environment](#simulation-environment)
+  * [Extra Square types and Properties](#extra-square-types-and-properties)
 * [Results](#-results)
-  * [Roll 1](#-roll-1)
-  * [Roll 2](#-roll-2)
+  * [Roll 1](#roll-1)
+  * [Roll 2](#roll-2)
 
 ## 🏢 Running Instructions
 
