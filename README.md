@@ -148,7 +148,7 @@ The Square class can be further extended. Some instructions to make a new `Jail`
    class Jail(Square):
        """Jail is a subclass of Square. It inherits state and behavior from
        the Square class. It is initialised the same way as a Square, with
-       __square_type as "to_" for this simulation
+       __square_type as "jail" for this simulation
 
        :param Square: Parent class
        :type Square: Square
@@ -169,7 +169,7 @@ The Square class can be further extended. Some instructions to make a new `Jail`
                 # GO square
                 squares[i] = Go(data["name"], data["type"])
             if data["type"] == "jail":
-                # GO square
+                # Jail square
                 squares[i] = Jail(data["name"], data["type"])
         return squares
 ```
